@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InventoryActions" load_steps=2 format=3 uid="uid://d1htpfskxfvnc"]
+
+[ext_resource type="Script" uid="uid://cswwrkf8656x" path="res://addons/flex_inventory/settings/inventory_actions.gd" id="1_xih40"]
+
+[resource]
+script = ExtResource("1_xih40")
+inventory = &"inventory"
+metadata/_custom_type_script = "uid://cswwrkf8656x"
