@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ShopBus" load_steps=2 format=3 uid="uid://bnf1uup4lsmly"]
+
+[ext_resource type="Script" uid="uid://co2gbf6ixskl1" path="res://addons/flex_inventory/shop/shop_bus.gd" id="1_j1hr8"]
+
+[resource]
+script = ExtResource("1_j1hr8")
+metadata/_custom_type_script = ExtResource("1_j1hr8")

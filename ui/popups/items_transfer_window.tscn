@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlgaiylbbyj6h"]
+
+[ext_resource type="Script" uid="uid://cot0gflhmq2vu" path="res://addons/flex_inventory/ui/popups/items_transfer_menu.gd" id="1_1ekv3"]
+[ext_resource type="PackedScene" uid="uid://cjvwl4bav0nhj" path="res://templates/flex_inventory/ui/popups/transfer_amount_selector.tscn" id="3_i5354"]
+
+[node name="ItemsTransferMenu" type="ConfirmationDialog" node_paths=PackedStringArray("selector_grid")]
+position = Vector2i(0, 36)
+size = Vector2i(300, 157)
+visible = true
+transient = false
+exclusive = false
+unresizable = true
+borderless = true
+always_on_top = true
+popup_window = true
+script = ExtResource("1_1ekv3")
+selector_grid = NodePath("VBoxContainer/ScrollContainer/GridContainer")
+selector_template = ExtResource("3_i5354")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 292.0
+offset_bottom = 108.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2

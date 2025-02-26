@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvp720wh76ix5"]
+
+[ext_resource type="Script" uid="uid://8xig4pvrskos" path="res://addons/flex_inventory/ui/flex_container_view.gd" id="1_iq11r"]
+[ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/flex_inventory/ui/resource_display/flex_stack_display.tscn" id="2_fs8i3"]
+
+
+
+[node name="ResourceDisplay" type="MarginContainer" node_paths=PackedStringArray("stack_container")]
+offset_right = 365.0
+offset_bottom = 78.0
+size_flags_vertical = 3
+mouse_filter = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_iq11r")
+flex_stack_display_template = ExtResource("2_fs8i3")
+stack_container = NodePath("NinePatchRect/MarginContainer/GridContainer")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.854902)
+layout_mode = 2
+region_rect = Rect2(128, 256, 64, 64)
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00015, 1)
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GridContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2

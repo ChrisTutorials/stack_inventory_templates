@@ -1,0 +1,164 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdbbur6alyr0r"]
+
+[ext_resource type="Script" path="res://addons/flex_inventory/ui/shop/shop_ui.gd" id="1_7n622"]
+[ext_resource type="Resource" uid="uid://b664d5oce74du" path="res://demo/signals/shop_container_bus.tres" id="4_be284"]
+[ext_resource type="Script" path="res://addons/flex_inventory/ui/shop/trade_item_list.gd" id="4_op383"]
+[ext_resource type="Script" path="res://addons/flex_inventory/ui/shop/shop_name_label.gd" id="5_74cu6"]
+[ext_resource type="Script" path="res://addons/flex_inventory/ui/item_container_list.gd" id="5_tk2ge"]
+[ext_resource type="Script" path="res://addons/flex_inventory/ui/shop/trade_button.gd" id="6_0u4hv"]
+[ext_resource type="PackedScene" uid="uid://dlgaiylbbyj6h" path="res://addons/flex_inventory/examples/ui/popups/exchange_transfer_window.tscn" id="7_jpw56"]
+
+[node name="ShopUI" type="NinePatchRect"]
+offset_right = 548.0
+offset_bottom = 525.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+region_rect = Rect2(192, 192, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("1_7n622")
+
+[node name="SellDropMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TabContainer" type="TabContainer" parent="SellDropMarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+current_tab = 0
+
+[node name="Shop" type="ScrollContainer" parent="SellDropMarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SellDropMarginContainer/TabContainer/Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopNameLabel" type="Label" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "SHOP NAME"
+script = ExtResource("5_74cu6")
+
+[node name="ShopScrollContainer" type="ScrollContainer" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="ShopItemContainerItemList" type="ItemList" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer/ShopScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+select_mode = 1
+max_columns = 3
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+script = ExtResource("5_tk2ge")
+container_bus = ExtResource("4_be284")
+allow_drag = true
+
+[node name="BuyLabel" type="Label" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Buy"
+
+[node name="BuyDropScrollContainer" type="ScrollContainer" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="BuyTradeList" type="ItemList" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer/BuyDropScrollContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+max_columns = 3
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+script = ExtResource("4_op383")
+
+[node name="SellLabel" type="Label" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Sell"
+
+[node name="SellDropScrollContainer" type="ScrollContainer" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="SellTradeList" type="ItemList" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer/SellDropScrollContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+max_columns = 3
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+script = ExtResource("4_op383")
+
+[node name="TradeButton" type="Button" parent="SellDropMarginContainer/TabContainer/Shop/MarginContainer/VBoxContainer" node_paths=PackedStringArray("shop_ui")]
+layout_mode = 2
+text = "Trade"
+script = ExtResource("6_0u4hv")
+shop_ui = NodePath("../../../../../..")
+price_prefix = "Trade: <"
+price_suffix = ">"
+
+[node name="BuyBack" type="ScrollContainer" parent="SellDropMarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SellDropMarginContainer/TabContainer/BuyBack"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SellDropMarginContainer/TabContainer/BuyBack/MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="BuyBackList" type="ItemList" parent="SellDropMarginContainer/TabContainer/BuyBack/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_vertical = 3
+fixed_icon_size = Vector2i(48, 48)
+script = ExtResource("4_op383")
+trade_type = 2
+
+[node name="BuybackTradeButton" type="Button" parent="SellDropMarginContainer/TabContainer/BuyBack/MarginContainer/VBoxContainer" node_paths=PackedStringArray("shop_ui")]
+layout_mode = 2
+text = "Trade"
+script = ExtResource("6_0u4hv")
+shop_ui = NodePath("../../../../../..")
+price_prefix = "Trade: <"
+price_suffix = ">"
+
+[node name="PopupMenu" parent="." instance=ExtResource("7_jpw56")]

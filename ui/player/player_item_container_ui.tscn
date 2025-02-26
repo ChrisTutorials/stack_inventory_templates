@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7cptwib50xyk"]
+
+[ext_resource type="Script" path="res://flex_inventory/ui/container/item_container_ui.gd" id="1_5pvuc"]
+[ext_resource type="Resource" path="res://addons/flex_inventory/templates/signals/player_inventory_bus.tres" id="2_kf0sk"]
+[ext_resource type="Script" uid="uid://b3nk21i63klnl" path="res://addons/flex_inventory/ui/item_list/container_display_list.gd" id="3_tk2at"]
+[ext_resource type="Texture2D" uid="uid://da3oqrbj2ylf" path="res://templates/flex_inventory/art/empty_icon.png" id="4_ohigh"]
+
+
+[node name="PlayerItemContainerUI" type="Window"]
+canvas_item_default_texture_filter = 0
+title = "Inventory"
+position = Vector2i(0, 36)
+size = Vector2i(400, 400)
+script = ExtResource("1_5pvuc")
+item_container_bus = ExtResource("2_kf0sk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+auto_translate_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemContainerList" type="ItemList" parent="VBoxContainer/MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+select_mode = 1
+max_columns = 3
+same_column_width = true
+fixed_column_width = 96
+fixed_icon_size = Vector2i(48, 48)
+script = ExtResource("3_tk2at")
+container_bus = ExtResource("2_kf0sk")
+items_transfer_bus = ExtResource("4_bg0qd")
+empty_icon = ExtResource("4_ohigh")
+drag_items = null
+drag_z_index = null

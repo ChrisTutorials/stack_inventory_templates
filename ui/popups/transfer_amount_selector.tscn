@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvwl4bav0nhj"]
+
+[ext_resource type="Script" uid="uid://d1koro5imc1pw" path="res://addons/flex_inventory/ui/popups/transfer_amount_selector.gd" id="1_wvkio"]
+[ext_resource type="Script" uid="uid://b7duqa3ca5nlr" path="res://templates/flex_inventory/ui/popups/modify_value_button.gd" id="2_nppdl"]
+[ext_resource type="Script" uid="uid://tvbwkj8comlb" path="res://templates/flex_inventory/ui/popups/max_value_button.gd" id="3_5wp55"]
+
+
+[node name="TransferAmountSelector" type="PanelContainer" node_paths=PackedStringArray("label", "icon_rect", "remove_button", "amount_slider", "amount_label")]
+offset_right = 203.0
+offset_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wvkio")
+label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ItemLabel")
+icon_rect = NodePath("MarginContainer/VBoxContainer/HBoxContainer/IconTextureRect")
+remove_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/RemoveButton")
+amount_slider = NodePath("MarginContainer/VBoxContainer/AmountSlider")
+amount_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/AmountLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RemoveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "X"
+
+[node name="IconTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ItemLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "none"
+
+[node name="AmountLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "(##)"
+
+[node name="AmountSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Minus10Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" node_paths=PackedStringArray("value_control")]
+auto_translate_mode = 1
+layout_mode = 2
+text = "-10"
+script = ExtResource("2_nppdl")
+value_change = -10
+value_control = NodePath("../../AmountSlider")
+
+[node name="Minus1Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" node_paths=PackedStringArray("value_control")]
+auto_translate_mode = 1
+layout_mode = 2
+text = "-1"
+script = ExtResource("2_nppdl")
+value_change = -1
+value_control = NodePath("../../AmountSlider")
+
+[node name="Plus1Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" node_paths=PackedStringArray("value_control")]
+layout_mode = 2
+text = "1"
+script = ExtResource("2_nppdl")
+value_control = NodePath("../../AmountSlider")
+
+[node name="Plus10Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" node_paths=PackedStringArray("value_control")]
+auto_translate_mode = 1
+layout_mode = 2
+text = "10"
+script = ExtResource("2_nppdl")
+value_change = 10
+value_control = NodePath("../../AmountSlider")
+
+[node name="MaxButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" node_paths=PackedStringArray("value_control")]
+auto_translate_mode = 1
+layout_mode = 2
+text = "MAX"
+script = ExtResource("3_5wp55")
+value_control = NodePath("../../AmountSlider")
