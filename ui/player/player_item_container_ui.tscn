@@ -1,36 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7cptwib50xyk"]
+[gd_scene load_steps=9 format=3 uid="uid://c7cptwib50xyk"]
 
 [ext_resource type="Script" uid="uid://b2bhs1n0jd8cl" path="res://addons/flex_inventory/inventory/player_inventory_ui.gd" id="1_5pvuc"]
 [ext_resource type="Resource" uid="uid://d1htpfskxfvnc" path="res://templates/flex_inventory/settings/default_inventory_actions.tres" id="2_1rcro"]
-[ext_resource type="Script" uid="uid://b3nk21i63klnl" path="res://addons/flex_inventory/ui/item_list/container_display_list.gd" id="3_tk2at"]
-[ext_resource type="Texture2D" uid="uid://da3oqrbj2ylf" path="res://templates/flex_inventory/art/empty_icon.png" id="4_ohigh"]
+[ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="3_oodcu"]
+[ext_resource type="Script" uid="uid://dgswtaqij3g7h" path="res://addons/flex_inventory/items/flex_stack.gd" id="4_oxnx1"]
+[ext_resource type="Resource" uid="uid://db5y1ie78lq5n" path="res://inventory/types/backpack_type.tres" id="5_nhykr"]
+[ext_resource type="Script" uid="uid://ccbvkadn5e0hg" path="res://addons/flex_inventory/inventory/flex_inventory.gd" id="7_5b3ry"]
+
+[sub_resource type="Resource" id="Resource_7vomf"]
+script = ExtResource("3_oodcu")
+type = ExtResource("5_nhykr")
+_slots = Array[ExtResource("4_oxnx1")]([])
+metadata/_custom_type_script = "uid://dfoiqel6lgbf7"
+
+[sub_resource type="Resource" id="Resource_r5w7b"]
+script = ExtResource("7_5b3ry")
+containers = Array[ExtResource("3_oodcu")]([SubResource("Resource_7vomf")])
+money = 0.0
+metadata/_custom_type_script = "uid://ccbvkadn5e0hg"
 
 [node name="PlayerItemContainerUI" type="TabContainer"]
 offset_right = 400.0
 offset_bottom = 400.0
-current_tab = 0
 script = ExtResource("1_5pvuc")
 actions = ExtResource("2_1rcro")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-auto_translate_mode = 1
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-auto_translate_mode = 1
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ItemContainerList" type="ItemList" parent="VBoxContainer/MarginContainer"]
-auto_translate_mode = 1
-layout_mode = 2
-select_mode = 1
-max_columns = 3
-same_column_width = true
-fixed_column_width = 96
-fixed_icon_size = Vector2i(48, 48)
-script = ExtResource("3_tk2at")
-empty_icon = ExtResource("4_ohigh")
-drag_items = null
-drag_z_index = null
+inventory = SubResource("Resource_r5w7b")
+container_view_template = "uid://cihvnkle5hx0m"
+show_tab_titles = true
