@@ -1,16 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7cptwib50xyk"]
+[gd_scene load_steps=13 format=3 uid="uid://c7cptwib50xyk"]
 
 [ext_resource type="Script" uid="uid://b2bhs1n0jd8cl" path="res://addons/flex_inventory/inventory/player_inventory_ui.gd" id="1_5pvuc"]
 [ext_resource type="Resource" uid="uid://d1htpfskxfvnc" path="res://templates/flex_inventory/settings/default_inventory_actions.tres" id="2_1rcro"]
 [ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="3_oodcu"]
 [ext_resource type="Script" uid="uid://dgswtaqij3g7h" path="res://addons/flex_inventory/items/flex_stack.gd" id="4_oxnx1"]
 [ext_resource type="Resource" uid="uid://db5y1ie78lq5n" path="res://inventory/types/backpack_type.tres" id="5_nhykr"]
+[ext_resource type="Resource" uid="uid://cyahsbj2waht2" path="res://inventory/items/stone_item.tres" id="5_oodcu"]
+[ext_resource type="Resource" uid="uid://dulu278yhkx8d" path="res://inventory/items/wood_item.tres" id="6_oxnx1"]
 [ext_resource type="Script" uid="uid://ccbvkadn5e0hg" path="res://addons/flex_inventory/inventory/flex_inventory.gd" id="7_5b3ry"]
+
+[sub_resource type="Resource" id="Resource_cajua"]
+script = ExtResource("4_oxnx1")
+item = ExtResource("5_oodcu")
+count = 10
+infinite = false
+metadata/_custom_type_script = "uid://dgswtaqij3g7h"
+
+[sub_resource type="Resource" id="Resource_rfny4"]
+script = ExtResource("4_oxnx1")
+item = ExtResource("6_oxnx1")
+count = 10
+infinite = false
+metadata/_custom_type_script = "uid://dgswtaqij3g7h"
 
 [sub_resource type="Resource" id="Resource_7vomf"]
 script = ExtResource("3_oodcu")
 type = ExtResource("5_nhykr")
-_slots = Array[ExtResource("4_oxnx1")]([])
+_slots = Array[ExtResource("4_oxnx1")]([SubResource("Resource_cajua"), SubResource("Resource_rfny4")])
 metadata/_custom_type_script = "uid://dfoiqel6lgbf7"
 
 [sub_resource type="Resource" id="Resource_r5w7b"]
