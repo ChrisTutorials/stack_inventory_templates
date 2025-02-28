@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FlexActions" load_steps=2 format=3 uid="uid://dyh51gy8sq4fq"]
+
+[ext_resource type="Script" uid="uid://dvsesvhoxfsvh" path="res://addons/flex_inventory/flex_actions.gd" id="1_txsun"]
+
+[resource]
+script = ExtResource("1_txsun")
+increase_action = &"increase"
+decrease_action = &"decrease"
+strengthen_action = &"strengthen"
+metadata/_custom_type_script = "uid://dvsesvhoxfsvh"
