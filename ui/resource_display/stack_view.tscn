@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqex1ic151pcb"]
 
-[ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/flex_inventory/ui/flex_stack_display.gd" id="1_hcji2"]
+[ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/flex_inventory/ui/stack_view.gd" id="1_hp026"]
 
-[node name="FlexStackDisplay" type="Button" node_paths=PackedStringArray("count_label")]
+[node name="StackView" type="Button" node_paths=PackedStringArray("count_label")]
 custom_minimum_size = Vector2(60, 40)
 offset_left = 5.0
 offset_top = 5.0
@@ -11,7 +11,7 @@ offset_bottom = 69.0
 size_flags_horizontal = 0
 focus_mode = 1
 expand_icon = true
-script = ExtResource("1_hcji2")
+script = ExtResource("1_hp026")
 count_label = NodePath("ItemLabel")
 
 [node name="ItemLabel" type="Label" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://daomms2x82s43" path="res://addons/flex_inventory/shop/shop_ui.gd" id="1_7n622"]
 [ext_resource type="Resource" uid="uid://bnf1uup4lsmly" path="res://templates/flex_inventory/signals/shop_bus.tres" id="2_qh1s8"]
 [ext_resource type="PackedScene" uid="uid://cihvnkle5hx0m" path="res://templates/flex_inventory/ui/item_container_view.tscn" id="3_gjvgi"]
-[ext_resource type="PackedScene" uid="uid://5f6faw5gq66c" path="res://addons/flex_inventory/ui/resource_display/shop_stack_display.tscn" id="4_8nb10"]
+[ext_resource type="PackedScene" uid="uid://5f6faw5gq66c" path="res://addons/flex_inventory/ui/resource_display/shop_stack_view.tscn" id="4_8nb10"]
 
 [node name="ShopUI" type="Panel" node_paths=PackedStringArray("close_button", "stock_view", "buyback_view")]
 offset_right = 300.0

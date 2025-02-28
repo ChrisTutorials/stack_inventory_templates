@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvp720wh76ix5"]
 
 [ext_resource type="Script" uid="uid://8xig4pvrskos" path="res://addons/flex_inventory/ui/flex_container_view.gd" id="1_iq11r"]
-[ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/flex_inventory/ui/resource_display/flex_stack_display.tscn" id="2_fs8i3"]
+[ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/flex_inventory/ui/resource_display/stack_view.tscn" id="2_fs8i3"]
 
 
 
