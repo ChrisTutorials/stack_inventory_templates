@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdbbur6alyr0r"]
+[gd_scene load_steps=11 format=3 uid="uid://cdbbur6alyr0r"]
 
 [ext_resource type="Script" uid="uid://daomms2x82s43" path="res://addons/flex_inventory/shop/shop_ui.gd" id="1_7n622"]
 [ext_resource type="Resource" uid="uid://bnf1uup4lsmly" path="res://templates/flex_inventory/signals/shop_bus.tres" id="2_qh1s8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dgswtaqij3g7h" path="res://addons/flex_inventory/items/flex_stack.gd" id="4_v1agq"]
 [ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="5_o4tfw"]
 [ext_resource type="Resource" uid="uid://de1ir17g0bw6s" path="res://templates/flex_inventory/inventory/shop_type.tres" id="6_lenpj"]
+[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://templates/flex_inventory/ui/shop/cost_display.gd" id="8_o4tfw"]
 
 [sub_resource type="Resource" id="Resource_8jvqj"]
 script = ExtResource("5_o4tfw")
@@ -95,6 +96,7 @@ item_container = SubResource("Resource_dfc48")
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "COST:"
+script = ExtResource("8_o4tfw")
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 1
