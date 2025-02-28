@@ -4,11 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/flex_inventory/ui/resource_display/flex_stack_display.tscn" id="2_msg5y"]
 
 [node name="ItemContainerView" type="PanelContainer" node_paths=PackedStringArray("grid_container")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+scale = Vector2(1.00259, 1)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_tedsn")
