@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdbbur6alyr0r"]
+[gd_scene load_steps=10 format=3 uid="uid://cdbbur6alyr0r"]
 
 [ext_resource type="Script" uid="uid://daomms2x82s43" path="res://addons/flex_inventory/shop/shop_ui.gd" id="1_7n622"]
 [ext_resource type="Resource" uid="uid://bnf1uup4lsmly" path="res://templates/flex_inventory/signals/shop_bus.tres" id="2_qh1s8"]
 [ext_resource type="PackedScene" uid="uid://cihvnkle5hx0m" path="res://templates/flex_inventory/ui/item_container_view.tscn" id="3_gjvgi"]
 [ext_resource type="PackedScene" uid="uid://5f6faw5gq66c" path="res://addons/flex_inventory/ui/resource_display/shop_stack_view.tscn" id="4_8nb10"]
+[ext_resource type="Script" uid="uid://dgswtaqij3g7h" path="res://addons/flex_inventory/items/flex_stack.gd" id="4_v1agq"]
+[ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="5_o4tfw"]
+[ext_resource type="Resource" uid="uid://de1ir17g0bw6s" path="res://templates/flex_inventory/inventory/shop_type.tres" id="6_lenpj"]
+
+[sub_resource type="Resource" id="Resource_8jvqj"]
+script = ExtResource("5_o4tfw")
+type = ExtResource("6_lenpj")
+_slots = Array[ExtResource("4_v1agq")]([])
+metadata/_custom_type_script = "uid://dfoiqel6lgbf7"
+
+[sub_resource type="Resource" id="Resource_dfc48"]
+script = ExtResource("5_o4tfw")
+type = ExtResource("6_lenpj")
+_slots = Array[ExtResource("4_v1agq")]([])
+metadata/_custom_type_script = "uid://dfoiqel6lgbf7"
 
 [node name="ShopUI" type="Panel" node_paths=PackedStringArray("close_button", "stock_view", "buyback_view")]
 offset_right = 300.0
@@ -54,6 +69,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+item_container = SubResource("Resource_8jvqj")
 item_display_template = ExtResource("4_8nb10")
 
 [node name="BuyBack" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
@@ -73,6 +89,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="BuybackView" parent="VBoxContainer/TabContainer/BuyBack/MarginContainer" instance=ExtResource("3_gjvgi")]
 layout_mode = 2
+item_container = SubResource("Resource_dfc48")
 
 [node name="CostDisplay" type="RichTextLabel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
