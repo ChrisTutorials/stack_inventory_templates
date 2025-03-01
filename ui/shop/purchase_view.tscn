@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://stlhquw164jo"]
+[gd_scene load_steps=7 format=3 uid="uid://stlhquw164jo"]
 
 [ext_resource type="PackedScene" uid="uid://cihvnkle5hx0m" path="res://templates/flex_inventory/ui/item_container_view.tscn" id="1_oki2o"]
 [ext_resource type="Script" uid="uid://dgswtaqij3g7h" path="res://addons/flex_inventory/items/flex_stack.gd" id="2_f42su"]
 [ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="3_rhpou"]
 [ext_resource type="Resource" uid="uid://de1ir17g0bw6s" path="res://templates/flex_inventory/inventory/shop_type.tres" id="4_w8qw1"]
-[ext_resource type="PackedScene" uid="uid://5f6faw5gq66c" path="res://addons/flex_inventory/ui/resource_display/shop_stack_view.tscn" id="5_u7urc"]
 [ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://templates/flex_inventory/ui/shop/cost_display.gd" id="6_0cxy0"]
 
 [sub_resource type="Resource" id="Resource_8jvqj"]
@@ -42,7 +41,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 item_container = SubResource("Resource_8jvqj")
-item_display_template = ExtResource("5_u7urc")
 
 [node name="CostDisplay" type="RichTextLabel" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("shop_view")]
 custom_minimum_size = Vector2(0, 30)

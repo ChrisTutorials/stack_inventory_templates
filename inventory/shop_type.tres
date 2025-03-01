@@ -11,5 +11,5 @@ size = 12
 allow_multiple_stacks = true
 allow_partial_adds = true
 has_unlimited_space = true
-empty_mode = 2
+empty_mode = 1
 metadata/_custom_type_script = "uid://dp6q7lh63jeiy"

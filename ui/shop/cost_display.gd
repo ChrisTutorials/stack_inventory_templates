@@ -34,6 +34,8 @@ func calculate_cost(p_stack_views : Array[StackView]) -> float:
 	var total_cost := 0.0
 	
 	for view in p_stack_views:
+		if view.item_stack == null || view.item_stack.item == null: continue # No item to calculate
+		
 		total_cost += view.selected_count * view.item_stack.item.value
 	
 	return total_cost
