@@ -35,9 +35,14 @@ containers = Array[ExtResource("3_oodcu")]([SubResource("Resource_7vomf")])
 money = 0.0
 metadata/_custom_type_script = "uid://ccbvkadn5e0hg"
 
-[node name="PlayerItemContainerUI" type="TabContainer"]
+[node name="PlayerInventoryView" type="TabContainer"]
+current_tab = 0
 script = ExtResource("1_5pvuc")
 actions = ExtResource("2_1rcro")
 inventory = SubResource("Resource_r5w7b")
 container_view_template = "uid://cihvnkle5hx0m"
 show_tab_titles = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+metadata/_tab_index = 0
