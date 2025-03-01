@@ -23,7 +23,7 @@ var cost : float = 0.0 :
 		cost = value
 		update_text()
 
-func _ready():
+func _ready() -> void:
 	validate()
 	update_text()
 
@@ -42,7 +42,7 @@ func update_text() -> void:
 	text = text_template % cost
 	
 func validate() -> bool:
-	var no_problems = true
+	var no_problems := true
 	
 	if shop_view == null:
 		push_warning("No stock view assigned, shopping cost will not update.")
