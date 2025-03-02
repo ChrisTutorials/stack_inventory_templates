@@ -1,15 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://stlhquw164jo"]
+[gd_scene load_steps=6 format=3 uid="uid://stlhquw164jo"]
 
 [ext_resource type="PackedScene" uid="uid://cihvnkle5hx0m" path="res://templates/flex_inventory/ui/item_container_view.tscn" id="1_oki2o"]
-[ext_resource type="Script" uid="uid://dgswtaqij3g7h" path="res://addons/flex_inventory/items/flex_stack.gd" id="2_f42su"]
+[ext_resource type="Script" uid="uid://dgswtaqij3g7h" path="res://addons/flex_inventory/items/flex_stack.gd" id="2_ajvl3"]
 [ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="3_rhpou"]
-[ext_resource type="Resource" uid="uid://de1ir17g0bw6s" path="res://templates/flex_inventory/inventory/shop_type.tres" id="4_w8qw1"]
 [ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://templates/flex_inventory/ui/shop/cost_display.gd" id="6_0cxy0"]
 
 [sub_resource type="Resource" id="Resource_8jvqj"]
 script = ExtResource("3_rhpou")
-type = ExtResource("4_w8qw1")
-_slots = Array[ExtResource("2_f42su")]([])
+_slots = Array[ExtResource("2_ajvl3")]([])
 metadata/_custom_type_script = "uid://dfoiqel6lgbf7"
 
 [node name="Purchase" type="ScrollContainer"]
