@@ -4,7 +4,10 @@
 
 [resource]
 script = ExtResource("1_txsun")
-increase_action = &"increase"
-decrease_action = &"decrease"
-strengthen_action = &"strengthen"
+increase = &"increase"
+decrease = &"decrease"
+increase_more = &"increase_more"
+decrease_more = &"decrease_more"
+inventory = &"inventory"
+shift_modifier = true
 metadata/_custom_type_script = "uid://dvsesvhoxfsvh"

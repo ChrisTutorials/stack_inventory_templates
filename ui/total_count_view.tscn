@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cjs2wi0plqxhu" path="res://addons/flex_inventory/ui/resource_display/total_item_count_view.gd" id="1_tedsn"]
 [ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/flex_inventory/ui/resource_display/stack_view.tscn" id="2_0i748"]
 
-
 [node name="ResourceDisplay" type="MarginContainer" node_paths=PackedStringArray("grid_container")]
 offset_right = 362.0
 offset_bottom = 76.0

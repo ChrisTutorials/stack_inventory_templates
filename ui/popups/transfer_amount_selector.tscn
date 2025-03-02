@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://b7duqa3ca5nlr" path="res://templates/flex_inventory/ui/popups/modify_value_button.gd" id="2_nppdl"]
 [ext_resource type="Script" uid="uid://tvbwkj8comlb" path="res://templates/flex_inventory/ui/popups/max_value_button.gd" id="3_5wp55"]
 
-
 [node name="TransferAmountSelector" type="PanelContainer" node_paths=PackedStringArray("label", "icon_rect", "remove_button", "amount_slider", "amount_label")]
 offset_right = 203.0
 offset_bottom = 94.0
