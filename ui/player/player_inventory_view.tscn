@@ -7,6 +7,8 @@
 
 [node name="PlayerInventoryView" type="TabContainer"]
 custom_minimum_size = Vector2(100, 100)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_jkmc6")
 inventory = ExtResource("2_pdbwq")
 container_view_template = "uid://cihvnkle5hx0m"
