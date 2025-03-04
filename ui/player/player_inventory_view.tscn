@@ -1,21 +1,38 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7cptwib50xyk"]
 
 [ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/flex_inventory/ui/inventory_view.gd" id="1_jkmc6"]
-[ext_resource type="Resource" uid="uid://3f6rt1jncq85" path="res://inventory/player_inventory.tres" id="2_pdbwq"]
+[ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/flex_inventory/ui/inventory/money_label.gd" id="5_tpnmj"]
 [ext_resource type="Script" uid="uid://dw4gh738rcbh4" path="res://addons/flex_inventory/ui/inventory_controller.gd" id="8_cvp67"]
 [ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/flex_inventory/settings/default_actions.tres" id="9_3542n"]
 
-[node name="PlayerInventoryView" type="TabContainer"]
+[node name="PlayerInventoryView" type="Control" node_paths=PackedStringArray("tabs")]
 custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jkmc6")
-inventory = ExtResource("2_pdbwq")
+tabs = NodePath("VBoxContainer/ItemContainerTabs")
 container_view_template = "uid://cihvnkle5hx0m"
 show_tab_titles = true
+metadata/_custom_type_script = "uid://bni6b13ea483x"
 
-[node name="InventoryController" type="Node" parent="." node_paths=PackedStringArray("inventory_view")]
+[node name="InventoryController" type="Node" parent="."]
 script = ExtResource("8_cvp67")
-inventory_view = NodePath("..")
 open_at_mouse = true
 actions = ExtResource("9_3542n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ItemContainerTabs" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "MONEY"
+script = ExtResource("5_tpnmj")
