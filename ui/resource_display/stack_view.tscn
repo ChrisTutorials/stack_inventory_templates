@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqex1ic151pcb"]
 
-[ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/flex_inventory/ui/stack_view.gd" id="1_hp026"]
+[ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/flex_inventory/ui/view/stack_view.gd" id="1_hp026"]
 [ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/flex_inventory/settings/default_actions.tres" id="2_3hooi"]
 
 [node name="StackView" type="Button" node_paths=PackedStringArray("count_label")]

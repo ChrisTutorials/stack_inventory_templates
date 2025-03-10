@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7cptwib50xyk"]
 
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/flex_inventory/ui/inventory_view.gd" id="1_jkmc6"]
+[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/flex_inventory/ui/view/inventory_view.gd" id="1_jkmc6"]
 [ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/flex_inventory/ui/inventory/money_label.gd" id="5_tpnmj"]
 [ext_resource type="Script" uid="uid://dw4gh738rcbh4" path="res://addons/flex_inventory/ui/inventory_controller.gd" id="8_cvp67"]
 [ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/flex_inventory/settings/default_actions.tres" id="9_3542n"]
