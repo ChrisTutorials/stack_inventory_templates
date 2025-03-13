@@ -3,6 +3,7 @@ extends RichTextLabel
 
 ## The view holding the items being shopped for which the cost is calculated from
 ## depending on the number and type of items selected.
+## TODO: This should probably be seperated from the view but use the underlying selection StackSelection instead
 @export var shop_view : ItemContainerView :
 	set(value):
 		if shop_view != null:
@@ -36,7 +37,7 @@ func calculate_cost(p_stack_views : Array[StackView]) -> float:
 	for view in p_stack_views:
 		if view.item_stack == null || view.item_stack.item == null: continue # No item to calculate
 		
-		total_cost += view.selected_count * view.item_stack.item.value
+		total_cost += view.selection.amount * view.item_stack.item.value
 	
 	return total_cost
 	
