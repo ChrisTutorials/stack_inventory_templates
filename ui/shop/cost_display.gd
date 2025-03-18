@@ -7,12 +7,12 @@ extends RichTextLabel
 @export var shop_view : ItemContainerView :
 	set(value):
 		if shop_view != null:
-			shop_view.selected_items_changed.disconnect(_on_view_selected_items_changed)
+			shop_view.stack_selection_amount_changed.disconnect(_on_view_stack_selection_amount_changed)
 			
 		shop_view = value
 		
 		if shop_view != null:
-			shop_view.selected_items_changed.connect(_on_view_selected_items_changed)
+			shop_view.stack_selection_amount_changed.connect(_on_view_stack_selection_amount_changed)
 
 ## The template for showing the cost. Keep %d so the calculated cost
 ## can be added to the string.
@@ -44,14 +44,13 @@ func calculate_cost(p_stack_views : Array[StackView]) -> float:
 func update_text() -> void:
 	text = text_template % cost
 	
-func validate() -> bool:
-	var no_problems := true
+func validate() -> Array[String]:
+	var problems : Array[String] = []
 	
 	if shop_view == null:
-		push_warning("No stock view assigned, shopping cost will not update.")
-		no_problems = false
+		problems.append("No stock view assigned, shopping cost will not update.")
 		
-	return no_problems
+	return problems
 
-func _on_view_selected_items_changed(p_stack_views : Array[StackView]) -> void:
-	cost = calculate_cost(p_stack_views)
+func _on_view_stack_selection_amount_changed(p_stack_selection : StackSelection) -> void:
+	cost = calculate_cost(shop_view.stack_views)
