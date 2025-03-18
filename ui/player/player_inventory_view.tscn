@@ -14,9 +14,9 @@ offset_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jkmc6")
-tabs = NodePath("VBoxContainer/ItemContainerTabs")
 container_view_template = "uid://cihvnkle5hx0m"
 show_tab_titles = true
+tabs = NodePath("VBoxContainer/ItemContainerTabs")
 metadata/_custom_type_script = "uid://bni6b13ea483x"
 
 [node name="InventoryController" type="Node" parent="."]
