@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://je64jahhobyx"]
 
 [ext_resource type="PackedScene" uid="uid://cihvnkle5hx0m" path="res://templates/flex_inventory/ui/item_container_view.tscn" id="1_al2lr"]
-[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://templates/flex_inventory/ui/shop/cost_display.gd" id="5_b66xe"]
+[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://templates/flex_inventory/ui/shop/cost_view.gd" id="5_b66xe"]
 
 [node name="BuyBack" type="ScrollContainer"]
 metadata/_tab_index = 1
@@ -19,9 +19,8 @@ theme_override_constants/margin_bottom = 10
 [node name="BuybackView" parent="MarginContainer" instance=ExtResource("1_al2lr")]
 layout_mode = 2
 
-[node name="CostDisplay" type="RichTextLabel" parent="." node_paths=PackedStringArray("shop_view")]
+[node name="CostView" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "COST:"
 script = ExtResource("5_b66xe")
-shop_view = NodePath("../MarginContainer/BuybackView")
