@@ -14,9 +14,9 @@ metadata/_custom_type_script = "uid://cty1hwl11wwbm"
 
 [sub_resource type="Resource" id="Resource_gejf3"]
 script = ExtResource("5_0cxy0")
-settings = SubResource("Resource_s206c")
 _item_containers = Array[ExtResource("2_oki2o")]([])
 money = 0.0
+settings = SubResource("Resource_s206c")
 metadata/_custom_type_script = "uid://ccbvkadn5e0hg"
 
 [node name="Purchase" type="ScrollContainer" node_paths=PackedStringArray("stock_view")]
