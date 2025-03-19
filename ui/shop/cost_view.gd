@@ -24,7 +24,7 @@ func _ready() -> void:
 func calculate_cost(p_items : Dictionary[FlexItem, int]) -> float:
 	var total_cost := 0.0
 	
-	for item in p_items.keys():
+	for item in p_items.keys() as Array[FlexItem]:
 		total_cost += p_items[item] * item.value
 	
 	return total_cost
