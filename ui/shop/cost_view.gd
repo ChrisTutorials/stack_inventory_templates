@@ -21,22 +21,22 @@ func _ready() -> void:
 	update_text()
 
 ## TODO: Move this calculation to the shop model cost_view should only show not calculate
-func calculate_cost(p_items : Dictionary[FlexItem, int]) -> float:
+func calculate_cost(p_items : Dictionary[BaseItem, int]) -> float:
 	var total_cost := 0.0
-	
-	for item in p_items.keys() as Array[FlexItem]:
+
+	for item in p_items.keys() as Array[BaseItem]:
 		total_cost += p_items[item] * item.value
-	
+
 	return total_cost
-	
+
 func update_text() -> void:
 	text = text_template % cost
-	
+
 func validate() -> Array[String]:
 	var issues : Array[String] = []
-		
+
 	return issues
 
-func _on_selected_totals_changed(p_item_totals : Dictionary[FlexItem, int]) -> void:
+func _on_selected_totals_changed(p_item_totals : Dictionary[BaseItem, int]) -> void:
 	cost = calculate_cost(p_item_totals)
 	update_text()
