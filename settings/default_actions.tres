@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FlexActions" load_steps=2 format=3 uid="uid://dyh51gy8sq4fq"]
+[gd_resource type="Resource" script_class="StackInventoryActions" load_steps=2 format=3 uid="uid://dyh51gy8sq4fq"]
 
 [ext_resource type="Script" uid="uid://dvsesvhoxfsvh" path="res://addons/stack_inventory/stack_inventory_actions.gd" id="1_txsun"]
 
