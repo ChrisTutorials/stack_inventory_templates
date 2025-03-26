@@ -35,8 +35,7 @@ text = "Money: 100"
 script = ExtResource("5_tpnmj")
 inventory = ExtResource("2_u7mtk")
 
-[node name="InventoryController" type="Node" parent="." node_paths=PackedStringArray("inventory_view")]
+[node name="InventoryController" type="Node" parent="."]
 script = ExtResource("8_cvp67")
-inventory_view = NodePath("")
 open_at_mouse = true
 actions = ExtResource("9_3542n")

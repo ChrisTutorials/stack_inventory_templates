@@ -1,15 +1,25 @@
-[gd_resource type="Resource" script_class="ShopContext" load_steps=6 format=3 uid="uid://ce6ae6r5mud4e"]
+[gd_resource type="Resource" script_class="ShopContext" load_steps=8 format=3 uid="uid://ce6ae6r5mud4e"]
 
 [ext_resource type="Script" uid="uid://c3f8shqt78ubq" path="res://addons/stack_inventory/shop/shop_context.gd" id="1_ulbrm"]
 [ext_resource type="Resource" uid="uid://uweh0ijr7okt" path="res://templates/stack_inventory/inventory/shop/buyback_inventory.tres" id="2_7v0ky"]
 [ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/stack_inventory/inventory/shop/purchase_inventory.tres" id="3_2wif0"]
 [ext_resource type="Script" uid="uid://dg18smmlj2vfw" path="res://addons/stack_inventory/shop/shop.gd" id="4_t2ux8"]
+[ext_resource type="Script" uid="uid://c02dqvasgkh5b" path="res://addons/stack_inventory/settings/trade_settings.gd" id="5_2wif0"]
+
+[sub_resource type="Resource" id="Resource_t2ux8"]
+script = ExtResource("5_2wif0")
+sell_multiplier = 1.0
+buy_multiplier = 1.0
+min_trade_value = 0.0
+max_trade_value = 0.0
+metadata/_custom_type_script = "uid://c02dqvasgkh5b"
 
 [sub_resource type="Resource" id="Resource_18ia7"]
 script = ExtResource("4_t2ux8")
 inventory_stock = ExtResource("3_2wif0")
 inventory_buy_back = ExtResource("2_7v0ky")
-display_name = &"Shop"
+display_name = &"Demo Shop"
+trade_settings = SubResource("Resource_t2ux8")
 metadata/_custom_type_script = "uid://dg18smmlj2vfw"
 
 [resource]
