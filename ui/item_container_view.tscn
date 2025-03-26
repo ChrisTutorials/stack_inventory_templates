@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cihvnkle5hx0m"]
 
-[ext_resource type="Script" uid="uid://dnk53rq44rqtl" path="res://addons/flex_inventory/ui/view/item_container_view.gd" id="1_tedsn"]
-[ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/flex_inventory/ui/resource_display/stack_view.tscn" id="2_msg5y"]
+[ext_resource type="Script" uid="uid://dnk53rq44rqtl" path="res://addons/stack_inventory/ui/view/item_container_view.gd" id="1_tedsn"]
+[ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/stack_inventory/ui/resource_display/stack_view.tscn" id="2_msg5y"]
 
 [node name="ItemContainerView" type="PanelContainer" node_paths=PackedStringArray("grid_container")]
 scale = Vector2(1.00259, 1)

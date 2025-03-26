@@ -1,10 +1,13 @@
-[gd_scene format=3 uid="uid://p5whx42fpqqy"]
+[gd_scene load_steps=2 format=3 uid="uid://p5whx42fpqqy"]
+
+[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_okhul"]
 
 [node name="ShopInventoryView" type="PanelContainer"]
 offset_right = 100.0
 offset_bottom = 100.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+script = ExtResource("1_okhul")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

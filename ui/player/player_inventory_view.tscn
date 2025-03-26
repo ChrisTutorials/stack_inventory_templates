@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7cptwib50xyk"]
+[gd_scene load_steps=6 format=3 uid="uid://c7cptwib50xyk"]
 
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/flex_inventory/ui/view/inventory_view.gd" id="1_jkmc6"]
-[ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/flex_inventory/ui/inventory/money_label.gd" id="5_tpnmj"]
-[ext_resource type="Script" uid="uid://dw4gh738rcbh4" path="res://addons/flex_inventory/ui/inventory_controller.gd" id="8_cvp67"]
-[ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/flex_inventory/settings/default_actions.tres" id="9_3542n"]
+[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_jkmc6"]
+[ext_resource type="Resource" uid="uid://3f6rt1jncq85" path="res://inventory/player_inventory.tres" id="2_u7mtk"]
+[ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/stack_inventory/ui/inventory/money_label.gd" id="5_tpnmj"]
+[ext_resource type="Script" uid="uid://dw4gh738rcbh4" path="res://addons/stack_inventory/ui/inventory_controller.gd" id="8_cvp67"]
+[ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/stack_inventory/settings/stack_inventory_actions.tres" id="9_3542n"]
 
-[node name="PlayerInventoryView" type="Control" node_paths=PackedStringArray("tabs")]
+[node name="PlayerInventoryView" type="Control" node_paths=PackedStringArray("money_label", "tabs")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 0
@@ -14,13 +15,16 @@ offset_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jkmc6")
+inventory = ExtResource("2_u7mtk")
+money_label = NodePath("VBoxContainer/MoneyLabel")
 tabs = NodePath("VBoxContainer/ItemContainerTabs")
 container_view_template = "uid://cihvnkle5hx0m"
 show_tab_titles = true
 metadata/_custom_type_script = "uid://bni6b13ea483x"
 
-[node name="InventoryController" type="Node" parent="."]
+[node name="InventoryController" type="Node" parent="." node_paths=PackedStringArray("inventory_view")]
 script = ExtResource("8_cvp67")
+inventory_view = NodePath("..")
 open_at_mouse = true
 actions = ExtResource("9_3542n")
 
@@ -31,8 +35,10 @@ offset_bottom = 40.0
 
 [node name="ItemContainerTabs" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
+current_tab = 0
 
 [node name="MoneyLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "MONEY"
+text = "Money: 100"
 script = ExtResource("5_tpnmj")
+inventory = ExtResource("2_u7mtk")

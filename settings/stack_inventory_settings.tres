@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InventorySettings" load_steps=2 format=3 uid="uid://c0f44y86i7vwa"]
+
+[ext_resource type="Script" uid="uid://cty1hwl11wwbm" path="res://addons/stack_inventory/inventory/inventory_settings.gd" id="1_crihm"]
+
+[resource]
+script = ExtResource("1_crihm")
+allow_partial_adds = true
+metadata/_custom_type_script = "uid://cty1hwl11wwbm"

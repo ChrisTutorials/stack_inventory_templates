@@ -1,32 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://stlhquw164jo"]
+[gd_scene load_steps=4 format=3 uid="uid://stlhquw164jo"]
 
-[ext_resource type="Script" uid="uid://b5sc7x2kw3bsw" path="res://addons/flex_inventory/ui/view/purchase_view.gd" id="1_4eii2"]
-[ext_resource type="PackedScene" uid="uid://cihvnkle5hx0m" path="res://templates/flex_inventory/ui/item_container_view.tscn" id="1_oki2o"]
-[ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="2_oki2o"]
-[ext_resource type="Script" uid="uid://ccbvkadn5e0hg" path="res://addons/flex_inventory/inventory/flex_inventory.gd" id="5_0cxy0"]
-[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://templates/flex_inventory/ui/shop/cost_view.gd" id="6_0cxy0"]
-[ext_resource type="Script" uid="uid://cty1hwl11wwbm" path="res://addons/flex_inventory/inventory/inventory_settings.gd" id="6_cjinr"]
+[ext_resource type="PackedScene" uid="uid://cihvnkle5hx0m" path="res://templates/stack_inventory/ui/item_container_view.tscn" id="1_oki2o"]
+[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_q0i4h"]
+[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_view.gd" id="6_0cxy0"]
 
-[sub_resource type="Resource" id="Resource_s206c"]
-script = ExtResource("6_cjinr")
-allow_partial_adds = false
-metadata/_custom_type_script = "uid://cty1hwl11wwbm"
-
-[sub_resource type="Resource" id="Resource_gejf3"]
-script = ExtResource("5_0cxy0")
-_item_containers = Array[ExtResource("2_oki2o")]([])
-money = 0.0
-settings = SubResource("Resource_s206c")
-metadata/_custom_type_script = "uid://ccbvkadn5e0hg"
-
-[node name="Purchase" type="ScrollContainer" node_paths=PackedStringArray("stock_view")]
+[node name="Purchase" type="ScrollContainer"]
 offset_right = 100.0
 offset_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_4eii2")
-stock_view = NodePath("MarginContainer/VBoxContainer/ShopScrollContainer/StockView")
-inventory = SubResource("Resource_gejf3")
+script = ExtResource("1_q0i4h")
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
