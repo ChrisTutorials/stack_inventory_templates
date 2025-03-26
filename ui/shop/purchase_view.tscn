@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_label.gd" id="6_0cxy0"]
 
 [node name="Purchase" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
-offset_right = 253.0
-offset_bottom = 267.0
+offset_right = 218.0
+offset_bottom = 236.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_q0i4h")
@@ -35,6 +35,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+tabs_visible = false
 script = ExtResource("3_ir8np")
 
 [node name="CostLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
