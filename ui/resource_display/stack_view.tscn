@@ -1,24 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqex1ic151pcb"]
+[gd_scene load_steps=10 format=3 uid="uid://cqex1ic151pcb"]
 
 [ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/stack_inventory/ui/view/stack_view.gd" id="1_hp026"]
+[ext_resource type="Texture2D" uid="uid://dsdwtnc0rntxh" path="res://art/board_game/pouch_add.png" id="1_msg1j"]
 [ext_resource type="Resource" uid="uid://katq2jngdu62" path="res://settings/demo_stack_view_settings.tres" id="2_3b825"]
 [ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/stack_inventory/settings/stack_inventory_actions.tres" id="2_3hooi"]
-[ext_resource type="Script" path="res://addons/stack_inventory/items/base_item.gd" id="2_ho726"]
+[ext_resource type="Script" uid="uid://wh04qt1e4bwn" path="res://addons/stack_inventory/items/base_item.gd" id="2_ho726"]
 [ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/stack_inventory/items/item_tag.gd" id="3_3b825"]
 [ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack.gd" id="4_msg1j"]
 
 [sub_resource type="Resource" id="Resource_7yusy"]
 script = ExtResource("2_ho726")
 name = ""
-tags = Array[ExtResource("3_3b825")]([])
+icon = ExtResource("1_msg1j")
 value = 0.0
+tags = Array[ExtResource("3_3b825")]([])
 stack_maximum = 1
 metadata/_custom_type_script = "uid://wh04qt1e4bwn"
 
 [sub_resource type="Resource" id="Resource_7gdxn"]
 script = ExtResource("4_msg1j")
 item = SubResource("Resource_7yusy")
-count = 0
+count = 5
 selected_amount = 0
 metadata/_custom_type_script = "uid://dkf0fyysgh1tc"
 
@@ -30,6 +32,7 @@ offset_right = 69.0
 offset_bottom = 69.0
 size_flags_horizontal = 0
 focus_mode = 1
+icon = ExtResource("1_msg1j")
 expand_icon = true
 script = ExtResource("1_hp026")
 settings = ExtResource("2_3b825")
@@ -46,5 +49,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+text = "5"
 horizontal_alignment = 2
 vertical_alignment = 2

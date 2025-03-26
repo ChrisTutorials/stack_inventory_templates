@@ -1,0 +1,4 @@
+[gd_resource type="Theme" format=3 uid="uid://c2vfxf3i18wxo"]
+
+[resource]
+TabContainer/constants/icon_max_width = 16

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemContainerType" load_steps=3 format=3 uid="uid://38aujloc50d0"]
+
+[ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/stack_inventory/items/item_tag.gd" id="1_apmb2"]
+[ext_resource type="Script" uid="uid://dp6q7lh63jeiy" path="res://addons/stack_inventory/inventory/item_container_type.gd" id="2_4wrbh"]
+
+[resource]
+script = ExtResource("2_4wrbh")
+name = &"Shop Purchase Container"
+allowed_tags = Array[ExtResource("1_apmb2")]([])
+size = 12
+allow_multiple_stacks = true
+has_unlimited_space = true
+empty_mode = 0
+metadata/_custom_type_script = "uid://dp6q7lh63jeiy"

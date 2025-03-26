@@ -1,13 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://p5whx42fpqqy"]
+[gd_scene load_steps=4 format=3 uid="uid://p5whx42fpqqy"]
 
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_okhul"]
+[ext_resource type="Script" uid="uid://b5sc7x2kw3bsw" path="res://addons/stack_inventory/ui/view/transaction_view.gd" id="1_m8far"]
+[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_label.gd" id="2_mxtj3"]
+[ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/stack_inventory/inventory/shop/purchase_inventory.tres" id="2_y0l3i"]
 
-[node name="ShopInventoryView" type="PanelContainer"]
-offset_right = 100.0
-offset_bottom = 100.0
+[node name="ShopInventoryView" type="PanelContainer" node_paths=PackedStringArray("cost_label", "container_tabs")]
+offset_right = 268.0
+offset_bottom = 260.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-script = ExtResource("1_okhul")
+script = ExtResource("1_m8far")
+cost_label = NodePath("MarginContainer/VBoxContainer/CostLabel")
+inventory = ExtResource("2_y0l3i")
+container_tabs = NodePath("MarginContainer/VBoxContainer/TabContainer")
+container_view_template = "uid://cihvnkle5hx0m"
+metadata/_custom_type_script = "uid://b5sc7x2kw3bsw"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -15,13 +22,12 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+current_tab = 0
 
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CostLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-columns = 3
+text = "COST: 0"
+script = ExtResource("2_mxtj3")
