@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://je64jahhobyx"]
 
-[ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_e77si"]
-[ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/stack_inventory/inventory/shop/purchase_inventory.tres" id="2_7mrcg"]
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="2_e77si"]
-[ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/stack_inventory/ui/adaptive_tab_container.gd" id="3_hn64r"]
-[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_label.gd" id="5_b66xe"]
+[ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/flex_inventory/settings/stack_inventory_theme.tres" id="1_e77si"]
+[ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/flex_inventory/inventory/shop/purchase_inventory.tres" id="2_7mrcg"]
+[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/flex_inventory/ui/inventory/inventory_view.gd" id="2_e77si"]
+[ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/flex_inventory/ui/adaptive_tab_container.gd" id="3_hn64r"]
+[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/flex_inventory/ui/view/cost_label.gd" id="5_b66xe"]
 
 [node name="BuyBackInventoryView" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
 offset_right = 218.0
@@ -33,6 +33,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+tabs_visible = false
 script = ExtResource("3_hn64r")
 metadata/_custom_type_script = "uid://bqt1dgs223pit"
 

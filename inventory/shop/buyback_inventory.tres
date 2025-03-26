@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="StackInventory" load_steps=8 format=3 uid="uid://uweh0ijr7okt"]
 
-[ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/stack_inventory/inventory/item_container.gd" id="1_s71pg"]
-[ext_resource type="Script" uid="uid://ccbvkadn5e0hg" path="res://addons/stack_inventory/inventory/stack_inventory.gd" id="2_72y14"]
-[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack.gd" id="2_rpc7x"]
-[ext_resource type="Resource" uid="uid://de1ir17g0bw6s" path="res://templates/stack_inventory/inventory/buyback_type.tres" id="3_3q7n8"]
-[ext_resource type="Script" uid="uid://cty1hwl11wwbm" path="res://addons/stack_inventory/inventory/inventory_settings.gd" id="3_rpc7x"]
+[ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="1_s71pg"]
+[ext_resource type="Script" uid="uid://ccbvkadn5e0hg" path="res://addons/flex_inventory/inventory/stack_inventory.gd" id="2_72y14"]
+[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/flex_inventory/inventory/item_stack.gd" id="2_rpc7x"]
+[ext_resource type="Resource" uid="uid://de1ir17g0bw6s" path="res://templates/flex_inventory/inventory/buyback_type.tres" id="3_3q7n8"]
+[ext_resource type="Script" uid="uid://cty1hwl11wwbm" path="res://addons/flex_inventory/inventory/inventory_settings.gd" id="3_rpc7x"]
 
 [sub_resource type="Resource" id="Resource_hqffw"]
 script = ExtResource("1_s71pg")

@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7cptwib50xyk"]
 
-[ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_14vg6"]
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_jkmc6"]
+[ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/flex_inventory/settings/stack_inventory_theme.tres" id="1_14vg6"]
+[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/flex_inventory/ui/inventory/inventory_view.gd" id="1_jkmc6"]
 [ext_resource type="Resource" uid="uid://3f6rt1jncq85" path="res://inventory/player_inventory.tres" id="2_u7mtk"]
-[ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/stack_inventory/ui/inventory/money_label.gd" id="5_tpnmj"]
-[ext_resource type="Script" uid="uid://dw4gh738rcbh4" path="res://addons/stack_inventory/ui/inventory_controller.gd" id="8_cvp67"]
-[ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/stack_inventory/settings/stack_inventory_actions.tres" id="9_3542n"]
+[ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/flex_inventory/ui/inventory/money_label.gd" id="5_tpnmj"]
+[ext_resource type="Script" uid="uid://dw4gh738rcbh4" path="res://addons/flex_inventory/ui/inventory_controller.gd" id="8_cvp67"]
+[ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/flex_inventory/settings/stack_inventory_actions.tres" id="9_3542n"]
 
 [node name="PlayerInventoryView" type="PanelContainer" node_paths=PackedStringArray("money_label", "container_tabs")]
 custom_minimum_size = Vector2(100, 100)
@@ -30,11 +30,10 @@ layout_mode = 2
 
 [node name="ItemContainerTabs" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-current_tab = 0
 
 [node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Money: 100"
+text = "Money: 0"
 script = ExtResource("5_tpnmj")
 inventory = ExtResource("2_u7mtk")
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://cihvnkle5hx0m"]
 
-[ext_resource type="Script" uid="uid://dnk53rq44rqtl" path="res://addons/stack_inventory/ui/view/item_container_view.gd" id="1_tedsn"]
-[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack.gd" id="3_65imq"]
-[ext_resource type="Resource" uid="uid://baahc7vgae5bm" path="res://templates/stack_inventory/items/test_item_shoe.tres" id="3_auliw"]
-[ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/stack_inventory/inventory/item_container.gd" id="4_auliw"]
+[ext_resource type="Script" uid="uid://dnk53rq44rqtl" path="res://addons/flex_inventory/ui/view/item_container_view.gd" id="1_tedsn"]
+[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/flex_inventory/inventory/item_stack.gd" id="3_65imq"]
+[ext_resource type="Resource" uid="uid://baahc7vgae5bm" path="res://templates/flex_inventory/items/test_item_shoe.tres" id="3_auliw"]
+[ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/flex_inventory/inventory/item_container.gd" id="4_auliw"]
 [ext_resource type="Resource" uid="uid://db5y1ie78lq5n" path="res://inventory/types/backpack_type.tres" id="5_gnqjd"]
 
 [sub_resource type="Resource" id="Resource_3m80w"]
