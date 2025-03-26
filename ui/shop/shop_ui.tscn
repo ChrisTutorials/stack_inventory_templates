@@ -14,11 +14,11 @@ offset_bottom = 500.0
 theme = ExtResource("1_crqfd")
 script = ExtResource("1_v03pr")
 shop_context = ExtResource("2_yh5ey")
-close_button = NodePath("VBoxContainer/HeaderMarginContainer/HBoxContainer/CloseButton")
-purchase_view = NodePath("VBoxContainer/TabContainer/Purchase")
-buyback_view = NodePath("VBoxContainer/TabContainer/BuyBack")
+close_button = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CloseButton")
+purchase_view = NodePath("MarginContainer/VBoxContainer/TabContainer/Purchase")
+buyback_view = NodePath("MarginContainer/VBoxContainer/TabContainer/BuyBack")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,13 +26,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HeaderMarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HeaderMarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ShopNameLabel" type="Label" parent="VBoxContainer/HeaderMarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ShopNameLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Demo Shop"
@@ -40,20 +43,20 @@ script = ExtResource("3_na10d")
 context = ExtResource("2_yh5ey")
 metadata/_custom_type_script = "uid://vliyyydkrprt"
 
-[node name="CloseButton" type="Button" parent="VBoxContainer/HeaderMarginContainer/HBoxContainer"]
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "X"
 
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-current_tab = 0
+current_tab = 1
 
-[node name="Purchase" parent="VBoxContainer/TabContainer" instance=ExtResource("3_qr5qo")]
+[node name="Purchase" parent="MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("3_qr5qo")]
+visible = false
 layout_mode = 2
 
-[node name="BuyBack" parent="VBoxContainer/TabContainer" instance=ExtResource("4_4nsqi")]
-visible = false
+[node name="BuyBack" parent="MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("4_4nsqi")]
 layout_mode = 2
 inventory = ExtResource("5_1n54q")

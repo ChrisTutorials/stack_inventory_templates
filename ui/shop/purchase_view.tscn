@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://stlhquw164jo"]
+[gd_scene load_steps=6 format=3 uid="uid://stlhquw164jo"]
 
 [ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_q0i4h"]
 [ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/stack_inventory/inventory/shop/purchase_inventory.tres" id="2_q0i4h"]
+[ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/stack_inventory/ui/adaptive_tab_container.gd" id="3_ir8np"]
 [ext_resource type="Resource" uid="uid://ce6ae6r5mud4e" path="res://templates/stack_inventory/settings/shop_context.tres" id="4_0kuge"]
 [ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_label.gd" id="6_0cxy0"]
 
@@ -12,7 +13,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_q0i4h")
 inventory = ExtResource("2_q0i4h")
-container_tabs = NodePath("MarginContainer/VBoxContainer/TabContainer")
+container_tabs = NodePath("MarginContainer/VBoxContainer/AdaptiveTabContainer")
 container_view_template = "uid://cihvnkle5hx0m"
 metadata/_custom_type_script = "uid://bni6b13ea483x"
 metadata/_tab_index = 0
@@ -30,10 +31,11 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+[node name="AdaptiveTabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+script = ExtResource("3_ir8np")
 
 [node name="CostLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)

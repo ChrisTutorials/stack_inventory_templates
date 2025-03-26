@@ -16,20 +16,23 @@ size_flags_vertical = 3
 theme = ExtResource("1_14vg6")
 script = ExtResource("1_jkmc6")
 inventory = ExtResource("2_u7mtk")
-money_label = NodePath("VBoxContainer/MoneyLabel")
-container_tabs = NodePath("VBoxContainer/ItemContainerTabs")
+money_label = NodePath("MarginContainer/VBoxContainer/MoneyLabel")
+container_tabs = NodePath("MarginContainer/VBoxContainer/ItemContainerTabs")
 container_view_template = "uid://cihvnkle5hx0m"
 show_tab_titles = true
 metadata/_custom_type_script = "uid://bni6b13ea483x"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="ItemContainerTabs" type="TabContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ItemContainerTabs" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 current_tab = 0
 
-[node name="MoneyLabel" type="Label" parent="VBoxContainer"]
+[node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Money: 100"
 script = ExtResource("5_tpnmj")
