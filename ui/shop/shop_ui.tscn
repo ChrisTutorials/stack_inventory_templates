@@ -30,7 +30,6 @@ current_tab = 0
 
 [node name="Purchase" parent="VBoxContainer/TabContainer" instance=ExtResource("3_qr5qo")]
 layout_mode = 2
-container_view_template = "uid://cihvnkle5hx0m"
 
 [node name="BuyBack" parent="VBoxContainer/TabContainer" instance=ExtResource("4_4nsqi")]
 visible = false
