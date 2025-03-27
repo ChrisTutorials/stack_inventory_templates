@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://stlhquw164jo"]
 
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/flex_inventory/ui/inventory/inventory_view.gd" id="1_q0i4h"]
-[ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/flex_inventory/inventory/shop/purchase_inventory.tres" id="2_q0i4h"]
-[ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/flex_inventory/ui/adaptive_tab_container.gd" id="3_ir8np"]
-[ext_resource type="Resource" uid="uid://ce6ae6r5mud4e" path="res://templates/flex_inventory/settings/shop_context.tres" id="4_0kuge"]
-[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/flex_inventory/ui/view/cost_label.gd" id="6_0cxy0"]
+[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_q0i4h"]
+[ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/stack_inventory/inventory/shop/purchase_inventory.tres" id="2_q0i4h"]
+[ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/stack_inventory/ui/adaptive_tab_container.gd" id="3_ir8np"]
+[ext_resource type="Resource" uid="uid://ce6ae6r5mud4e" path="res://templates/stack_inventory/settings/shop_context.tres" id="4_0kuge"]
+[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_display.gd" id="6_0cxy0"]
 
 [node name="Purchase" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
 offset_right = 218.0
@@ -35,9 +35,10 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+tabs_visible = false
 script = ExtResource("3_ir8np")
 
-[node name="CostLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="CostDisplay" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "COST: 0"

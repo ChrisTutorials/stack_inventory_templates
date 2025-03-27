@@ -1,12 +1,218 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqex1ic151pcb"]
 
-[ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/flex_inventory/ui/view/stack_view.gd" id="1_hp026"]
 [ext_resource type="Texture2D" uid="uid://dsdwtnc0rntxh" path="res://art/board_game/pouch_add.png" id="1_msg1j"]
-[ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/flex_inventory/settings/stack_inventory_actions.tres" id="2_3hooi"]
-[ext_resource type="Script" uid="uid://wh04qt1e4bwn" path="res://addons/flex_inventory/items/base_item.gd" id="2_ho726"]
-[ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/flex_inventory/items/item_tag.gd" id="3_3b825"]
-[ext_resource type="Script" uid="uid://ct6r5snpstssi" path="res://addons/flex_inventory/inventory/stack_view_settings.gd" id="3_s55mw"]
-[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/flex_inventory/inventory/item_stack.gd" id="4_msg1j"]
+[ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/stack_inventory/settings/stack_inventory_actions.tres" id="2_3hooi"]
+[ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/stack_inventory/items/item_tag.gd" id="3_3b825"]
+[ext_resource type="Script" uid="uid://ct6r5snpstssi" path="res://addons/stack_inventory/inventory/stack_view_settings.gd" id="3_s55mw"]
+
+[sub_resource type="GDScript" id="GDScript_0tp06"]
+script/source = "@tool
+class_name StackView
+extends Button
+## For displaying visuals for an item stack in UI
+
+@export var settings: StackViewSettings:
+	get:
+		if settings == null:
+			push_warning(\"No settings defined so getting defaults.\")
+			settings = StackViewSettings.get_default()
+		
+		return settings
+			
+	set(value):
+		settings = value
+		_queue_refresh()
+
+## The item stack currently being displayed and used in this StackView
+@export var item_stack : ItemStack:
+	set(value):
+		if item_stack == value:
+			return
+
+		_disconnect_signals(item_stack)
+		item_stack = value
+
+		if item_stack != null:
+			_queue_refresh()
+			_connect_signals(item_stack)
+
+## Define the actions to use for controlling this stack
+@export var actions: StackInventoryActions
+
+## Label to display the item count on
+@export var count_label: Label
+
+## Whether the mouse is currently over this view or not
+var mouse_over : bool = false
+
+## Whether a refresh of the UI is queued for the next frame
+var _refresh_queued := false :
+	set(value):
+		if _refresh_queued == value: # Guard against unnecessary calls
+			return
+
+		_refresh_queued = value
+
+		if _refresh_queued:
+			refresh.call_deferred()
+
+func _ready() -> void:
+	refresh()
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+
+## Increase or decrease the selected count depending on action input
+## but only when the mouse is also over the UI view
+func _unhandled_input(event: InputEvent) -> void:
+	if not mouse_over:
+		return
+
+	## Check the more actions first because if more is active, increase or decrease base already is too but we want to prioritize the more actions
+	if event.is_action_pressed(actions.decrease_more):
+		item_stack.selected_amount -= 10
+	elif event.is_action_pressed(actions.increase_more):
+		item_stack.selected_amount += 10
+	elif event.is_action_pressed(actions.increase):
+		if actions.shift_modifier && Input.is_key_pressed(KEY_SHIFT): # Work around for Mouse Wheel + Shift input
+			item_stack.selected_amount += 10
+		else:
+			item_stack.selected_amount += 1
+	elif event.is_action_pressed(actions.decrease):
+		if actions.shift_modifier && Input.is_key_pressed(KEY_SHIFT): # Work around for Mouse Wheel + Shift input
+			item_stack.selected_amount -= 10
+		else:
+			item_stack.selected_amount -= 1
+
+func refresh() -> void:
+	update_item_display()
+	update_count_display()
+	_refresh_queued = false
+
+## Set the count label to display the appropriate count number
+func update_count_display() -> void:
+	if count_label == null:
+		return
+
+	if item_stack == null or item_stack.item == null or item_stack.count == 0:
+		count_label.text = settings.empty_label
+		return
+
+	var max_selection = item_stack.get_count()
+
+	if max_selection >= InventoryConstants.INFINITE:
+		# Show selected / ∞ for infinite stacks
+		count_label.text = str(item_stack.selected_amount) + \" / ∞\"
+	elif max_selection == 1 && (settings == null || not settings.show_single_item_count):
+		count_label.text = \"\"
+	elif item_stack.selected_amount == 0:
+		# Show max amount when nothing is selected
+		count_label.text = str(max_selection)
+	else:
+		# Show selected / max when something is selected
+		count_label.text = \"%d / %d\" % [item_stack.selected_amount, max_selection]
+
+## Update the count_label.texture and tooltip to show item graphics and information
+func update_item_display() -> void:
+	if item_stack != null and item_stack.item != null:
+		icon = item_stack.item.icon
+		tooltip_text = item_stack.item.name
+	else:
+		icon = null
+		tooltip_text = settings.empty_tooltip
+
+func _on_count_changed(_item_totals : Dictionary[BaseItem, int]) -> void:
+	update_count_display()
+
+func _on_item_changed(_stack : ItemStack, _old : BaseItem) -> void:
+	_queue_refresh()
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	if data is StackTransfer:
+		return true
+
+	return false
+
+func _get_drag_data(at_posiition : Vector2) -> Variant:
+	# Inventory must be set from a parent to create the StackTransfer
+	var transfer = StackTransfer.new([item_stack])
+	var drag_control := TransferPreviewFactory.create_preview(transfer)
+	set_drag_preview(drag_control)
+	return transfer
+
+## Makes the ItemContainer the preferred container in the StackTransfer transaction
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	if data is StackTransfer:
+		data.target = item_stack
+		data.execute()
+
+## Creates a control for drag preview using the ItemStack's item icon and count
+func _create_drag_preview(stack: ItemStack) -> Control:
+	# Create a container (e.g., HBoxContainer) to hold texture and label
+	var container := HBoxContainer.new()
+	container.size = Vector2(64, 32)  # Adjust size as needed
+
+	# TextureRect for the item icon
+	var texture_rect := TextureRect.new()
+	texture_rect.texture = stack.item.icon if stack.item and stack.item.icon else null
+	texture_rect.custom_minimum_size = Vector2(32, 32)  # Fixed size for icon
+	texture_rect.expand_mode = TextureRect.EXPAND_FIT_WIDTH  # Ensure it fits
+	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+
+	# Label for the stack count
+	var label := Label.new()
+	label.text = str(stack.count) if not stack.infinite else \"∞\"
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.custom_minimum_size = Vector2(32, 32)  # Match icon height
+
+	# Add children to container
+	container.add_child(texture_rect)
+	container.add_child(label)
+
+	return container
+
+func _on_mouse_entered():
+	mouse_over = true
+
+func _on_mouse_exited():
+	mouse_over = false
+
+## Handle when the amount of items selected in the stack changes
+func _on_selected_amount_changed(p_stack : ItemStack):
+	_queue_refresh()
+
+func _on_stack_item_data_changed(p_stack : ItemStack):
+	_queue_refresh()
+
+## Disconnects from p_stack signals if not null and only for needed signals that are actually connected
+func _disconnect_signals(p_stack : ItemStack) -> void:
+	if p_stack == null: return
+
+	if p_stack.item_totals_changed.is_connected(_on_count_changed):
+		p_stack.item_totals_changed.disconnect(_on_count_changed)
+
+	if p_stack.item_changed.is_connected(_on_item_changed):
+		p_stack.item_changed.disconnect(_on_item_changed)
+
+	if p_stack.selected_amount_changed.is_connected(_on_selected_amount_changed):
+		p_stack.selected_amount_changed.disconnect(_on_selected_amount_changed)
+
+	if p_stack.item_data_changed.is_connected(_on_stack_item_data_changed):
+		p_stack.item_data_changed.disconnect(_on_stack_item_data_changed)
+
+## Connects to needed signals from the p_stack ItemStack, skips if p_stack is null.
+func _connect_signals(p_stack : ItemStack) -> void:
+	if p_stack == null: return
+
+	p_stack.item_totals_changed.connect(_on_count_changed)
+	p_stack.item_changed.connect(_on_item_changed)
+	p_stack.selected_amount_changed.connect(_on_selected_amount_changed)
+	p_stack.item_data_changed.connect(_on_stack_item_data_changed)
+
+func _queue_refresh():
+	if not _refresh_queued:
+		_refresh_queued = true
+"
 
 [sub_resource type="Resource" id="Resource_emafw"]
 script = ExtResource("3_s55mw")
@@ -14,8 +220,51 @@ empty_tooltip = "Empty"
 empty_label = ""
 show_single_item_count = false
 
+[sub_resource type="GDScript" id="GDScript_ho726"]
+script/source = "## The most basic item resource in StackInventory.
+## Extend from here if needed to maintain compatability with InventoryResource
+@tool
+class_name BaseItem
+extends Resource
+
+signal name_changed(new_name: String)
+signal icon_changed(new_icon: Texture2D)
+signal value_changed(new_value: float)
+
+## The display name of the item
+@export var name: String:
+	set(value):
+		name = value
+		name_changed.emit(name)
+
+## The icon that represents the visual of the item in inventory contexts
+@export var icon: Texture2D:
+	set(value):
+		icon = value
+		icon_changed.emit(icon)
+
+## The measured worth of the item (currency, etc)
+@export var value: float:
+	set(value):
+		value = value
+		value_changed.emit(value)
+
+@export var tags: Array[ItemTag] = []
+@export_range(0, 1000, 1, \"or_greater\") var stack_maximum: int = 1
+
+func _init(p_name: String = \"\", p_icon: Texture2D = null, 
+p_tags: Array[ItemTag] = [], p_stack_maximum: int = 1):
+	name = p_name
+	icon = p_icon
+	tags = p_tags
+	stack_maximum = p_stack_maximum
+
+func _to_string() -> String:
+	return name
+"
+
 [sub_resource type="Resource" id="Resource_7yusy"]
-script = ExtResource("2_ho726")
+script = SubResource("GDScript_ho726")
 name = ""
 icon = ExtResource("1_msg1j")
 value = 0.0
@@ -23,8 +272,273 @@ tags = Array[ExtResource("3_3b825")]([])
 stack_maximum = 1
 metadata/_custom_type_script = "uid://wh04qt1e4bwn"
 
+[sub_resource type="GDScript" id="GDScript_aehdv"]
+script/source = "## Lowest level child of InventoryResource hierachy which holds a single ItemType,
+## a count for how many of that item is contained, and a number of the stack
+## being selected.
+@tool
+class_name ItemStack
+extends InventoryResource
+
+## Emitted when the item value changes on the stack
+signal item_changed(stack: ItemStack, last_item : BaseItem)
+
+## Emitted when any of the underlying base_item properties changes
+signal item_data_changed(stack : ItemStack)
+
+## Emitted when the count value changes
+signal count_changed(stack : ItemStack, difference : int)
+
+## Emitted when the the amount of items selected from the stack changes
+signal selected_amount_changed(stack : ItemStack, difference : int)
+
+## The type of BaseItem that is held in the stack
+@export var item: BaseItem :
+	set(value):
+		if item == value:
+			return
+		
+		_disconnect_signals(item)
+		var old = item
+		item = value
+		_item_totals = { item : count }
+		
+		if item == null: # Force selected_amount to 0 when item is null
+			selected_amount = 0 
+		item_changed.emit(self, old)
+		_connect_signals(item)
+
+## How many of the item that the stack represents
+@export_range(0, 100, 1, 'or_greater') var count: int : set = set_count, get = get_count
+
+## The slot index within the item_container where this stack resides
+var slot: int = -1  # -1 indicates unassigned
+
+## The number of items currently being selected_amount for inventory interactions
+@export var selected_amount: int = 0:
+	set(value):
+		if item == null:
+			selected_amount = 0  # Always 0 if item is null
+			_selected_totals = { item : selected_amount }
+			return  # Early return to enforce 0
+
+		var clamped_value = clamp(value, 0, count)
+		if selected_amount == clamped_value:
+			return
+
+		var difference = clamped_value - selected_amount
+		selected_amount = clamped_value
+		selected_amount_changed.emit(self, difference)
+		_selected_totals = { item : selected_amount }
+
+func _init(p_item: BaseItem = null, p_count: int = 0, p_parent: InventoryResource = null, p_slot: int = -1):
+	## Initializes the stack with an item, count, and optional item_container and slot.
+	item = p_item
+	count = p_count
+	slot = p_slot
+	parent = p_parent
+
+## Removes the item data and sets count and selected amount to 0 but the stack itself still exists
+func clear() -> void:
+	item = null
+	count = 0
+	selected_amount = 0
+
+func get_count() -> int:
+	return count
+
+## Returns the number that can fit inside of the stack
+func get_space(p_item: BaseItem) -> int:
+	if not allows_type(p_item):
+		return 0
+
+	if item == null:
+		return p_item.stack_maximum
+		
+	if item == p_item:
+		return p_item.stack_maximum - count
+	
+	return 0 # Different type
+	
+## Returns the value of the item in this stack.
+func get_item_value() -> float:
+	if item:
+		return item.value
+	return 0.0
+
+## Determines whether this stack is empty and returns 1 for an empty stack
+## or 0 for an occupied stack
+func get_empty_stack_count() -> int:
+	if item == null:
+		return 1
+	
+	if count <= 0:
+		return 1
+
+	return 0
+
+## Checks if this stack can accept the given item type by validating with parent
+## Returns false if no parent exists or if item type is not allowed
+func allows_type(p_item: BaseItem) -> bool:
+	if p_item == null: return false # No item, don't allow
+	
+	# Constrained by parent unless no parent is set, else default true
+	return parent.allows_type(p_item) if parent != null else true
+
+## Override to enable stack swapping with validation
+## Returns true if the selection represents a full stack or empty stack
+func can_swap(p_stack: ItemStack) -> bool:
+	## The amount on the selection must be 0 or equal to the stack count
+	if not p_stack.selected_amount == 0 or p_stack.selected_amount == p_stack.count:
+		return false
+
+	## Both stacks must be able to accept each others items
+	if not allows_type(p_stack.get_item()) and p_stack.allows_type(item):
+		return false
+		
+	return true
+
+## Adds items to this stack
+## Returns the number of items successfully added
+func add_items(p_item: BaseItem, p_count: int) -> int:
+	if not can_add_items(p_item, p_count):
+		return 0
+	
+	# Handle empty stack case
+	if item == null:
+		item = p_item
+		count = min(p_count, p_item.stack_maximum)
+		return count
+	
+	# Must be same item type to add
+	if item != p_item:
+		return 0
+	
+	# Calculate how many can fit
+	var space_available := item.stack_maximum - count
+	var amount_to_add := min(space_available, p_count)
+	
+	if amount_to_add > 0:
+		count += amount_to_add
+	else:
+		push_warning(\"ItemStack.add_items - No space available\")
+	
+	return amount_to_add
+
+## Gets the total count of a specific item type in this stack
+## Returns stack count if item matches, 0 otherwise
+func get_item_count(p_item: BaseItem) -> int:
+	return count if item == p_item else 0
+
+## Returns the set item property as a BaseItem
+func get_item() -> BaseItem:
+	return item
+
+## Sets the count to a new value p_amount
+func set_count(p_amount : int) -> void:
+	if count == p_amount:
+		return
+	
+	var old = count
+	count = max(0, p_amount)  # Prevent negative counts
+	_item_totals = { item : count }
+		
+	if not Engine.is_editor_hint():
+		redistribute_overflow()
+	
+	var difference = count - old
+	count_changed.emit(self, difference)
+
+## Gets the number of items in the stack that are more than the stack allows
+func get_overflow() -> int:
+	if item == null: return 0 # No item defined
+	return count - item.stack_maximum
+
+## Uses a StackTransfer to move overflow count from the source stack to the target parent that can handle it
+func redistribute_overflow() -> StackTransfer:
+	var overflow = get_overflow()
+
+	if overflow <= 0 || self.item == null:
+		return null # There must be some overflow amount to actually transfer
+
+	var transfer := StackTransfer.new([self])
+
+	## Set the transfer target to the closet level that can handle the overflow
+	transfer.target = get_level_with_space({transfer.sources[0].item  : overflow})
+	
+	if transfer.target == null:
+		push_error(\"There is no parent to handle ItemStack overflow %s items of type <%s> on source %s\" % [overflow, item.resource_path, self])
+		transfer.result = StackTransfer.Result.NO_SPACE
+		return transfer
+		
+	transfer.execute()
+	
+	return transfer
+
+## Validates the stack to make sure it is configured correctly
+func validate() -> Array[String]:
+	var issues : Array[String] = []
+
+	# Check count bounds
+	if not _validate_count():
+		issues.append(\"Count of stack %s is set to unallowed value of %d\" % [resource_path, count])
+	
+	## Log ItemStack level issues
+	for issue in issues:
+		push_warning(issue)
+
+	# Get base class issues
+	issues.append_array(super())
+
+	return issues
+
+## Checks that the number of items in the stack is valid given the BaseItem type
+func _validate_count() -> bool:
+	var below_0 = count < 0
+	var violates_item_max = item != null && count > item.stack_maximum
+	
+	if below_0 || violates_item_max:
+		return false
+		
+	return true
+
+## Returns this stack as the swap target
+## Used during stack swap operations
+func get_swap_target(_other_stack: ItemStack) -> ItemStack:
+	return self
+
+## Returns true if this stack is empty (no item or zero count)
+func is_empty() -> bool:
+	return count <= 0 or item == null
+
+func _disconnect_signals(p_item : BaseItem) -> void:
+	if p_item == null:
+		return
+	
+	if p_item.icon_changed.is_connected(_on_item_data_changed):
+		p_item.icon_changed.disconnect(_on_item_data_changed)
+	
+	if p_item.name_changed.is_connected(_on_item_data_changed):
+		p_item.name_changed.disconnect(_on_item_data_changed)
+		
+	if p_item.value_changed.is_connected(_on_item_data_changed):
+		p_item.value_changed.disconnect(_on_item_data_changed)
+	
+func _connect_signals(p_item : BaseItem) -> void:
+	if p_item == null:
+		return
+	
+	p_item.icon_changed.connect(_on_item_data_changed)
+	p_item.name_changed.connect(_on_item_data_changed)
+	p_item.value_changed.connect(_on_item_data_changed)
+
+## Whenever the item data changes, emit a signal that the deta in the stack has changed.
+func _on_item_data_changed(_p_changed_value : Variant) -> void:
+	item_data_changed.emit(self)
+"
+
 [sub_resource type="Resource" id="Resource_7gdxn"]
-script = ExtResource("4_msg1j")
+script = SubResource("GDScript_aehdv")
 item = SubResource("Resource_7yusy")
 count = 5
 selected_amount = 0
@@ -40,7 +554,7 @@ size_flags_horizontal = 0
 focus_mode = 1
 icon = ExtResource("1_msg1j")
 expand_icon = true
-script = ExtResource("1_hp026")
+script = SubResource("GDScript_0tp06")
 settings = SubResource("Resource_emafw")
 item_stack = SubResource("Resource_7gdxn")
 actions = ExtResource("2_3hooi")
