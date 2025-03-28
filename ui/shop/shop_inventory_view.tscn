@@ -27,7 +27,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 current_tab = 0
-tabs_visible = false
 script = ExtResource("3_y0l3i")
 metadata/_custom_type_script = "uid://bqt1dgs223pit"
 

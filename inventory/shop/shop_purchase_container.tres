@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemContainerType" load_steps=3 format=3 uid="uid://38aujloc50d0"]
 
 [ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/stack_inventory/items/item_tag.gd" id="1_apmb2"]
-[ext_resource type="Script" uid="uid://dp6q7lh63jeiy" path="res://addons/stack_inventory/inventory/item_container_type.gd" id="2_4wrbh"]
+[ext_resource type="Script" uid="uid://dp6q7lh63jeiy" path="res://addons/stack_inventory/inventory/item_container/item_container_type.gd" id="2_4wrbh"]
 
 [resource]
 script = ExtResource("2_4wrbh")

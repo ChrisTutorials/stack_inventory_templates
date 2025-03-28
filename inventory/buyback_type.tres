@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemContainerType" load_steps=3 format=3 uid="uid://de1ir17g0bw6s"]
 
-[ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/flex_inventory/items/item_tag.gd" id="1_7jg6j"]
-[ext_resource type="Script" uid="uid://dp6q7lh63jeiy" path="res://addons/flex_inventory/inventory/item_container_type.gd" id="2_vuws2"]
+[ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/stack_inventory/items/item_tag.gd" id="1_7jg6j"]
+[ext_resource type="Script" uid="uid://dp6q7lh63jeiy" path="res://addons/stack_inventory/inventory/item_container/item_container_type.gd" id="2_vuws2"]
 
 [resource]
 script = ExtResource("2_vuws2")
