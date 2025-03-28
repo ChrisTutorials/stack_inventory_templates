@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cihvnkle5hx0m"]
+[gd_scene load_steps=11 format=3 uid="uid://cihvnkle5hx0m"]
 
 [ext_resource type="Script" uid="uid://dnk53rq44rqtl" path="res://addons/stack_inventory/ui/view/item_container_view.gd" id="1_tedsn"]
-[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack.gd" id="2_65imq"]
+[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack/item_stack.gd" id="2_65imq"]
+[ext_resource type="Script" uid="uid://wh04qt1e4bwn" path="res://addons/stack_inventory/items/base_item.gd" id="2_auliw"]
 [ext_resource type="Resource" uid="uid://baahc7vgae5bm" path="res://templates/stack_inventory/items/test_item_shoe.tres" id="3_auliw"]
 [ext_resource type="Script" uid="uid://dfoiqel6lgbf7" path="res://addons/stack_inventory/inventory/item_container/item_container.gd" id="4_gnqjd"]
 [ext_resource type="Resource" uid="uid://db5y1ie78lq5n" path="res://inventory/types/backpack_type.tres" id="5_6yk0g"]
@@ -11,6 +12,12 @@ script = ExtResource("2_65imq")
 item = ExtResource("3_auliw")
 count = 3
 selected_amount = 0
+_item_totals = Dictionary[ExtResource("2_auliw"), int]({
+ExtResource("3_auliw"): 3
+})
+_selected_totals = Dictionary[ExtResource("2_auliw"), int]({
+ExtResource("3_auliw"): 0
+})
 metadata/_custom_type_script = "uid://dkf0fyysgh1tc"
 
 [sub_resource type="Resource" id="Resource_38uc3"]
@@ -18,6 +25,12 @@ script = ExtResource("2_65imq")
 item = ExtResource("3_auliw")
 count = 3
 selected_amount = 0
+_item_totals = Dictionary[ExtResource("2_auliw"), int]({
+ExtResource("3_auliw"): 3
+})
+_selected_totals = Dictionary[ExtResource("2_auliw"), int]({
+ExtResource("3_auliw"): 0
+})
 metadata/_custom_type_script = "uid://dkf0fyysgh1tc"
 
 [sub_resource type="Resource" id="Resource_s2s46"]
@@ -25,12 +38,20 @@ script = ExtResource("2_65imq")
 item = ExtResource("3_auliw")
 count = 3
 selected_amount = 0
+_item_totals = Dictionary[ExtResource("2_auliw"), int]({
+ExtResource("3_auliw"): 3
+})
+_selected_totals = Dictionary[ExtResource("2_auliw"), int]({
+ExtResource("3_auliw"): 0
+})
 metadata/_custom_type_script = "uid://dkf0fyysgh1tc"
 
 [sub_resource type="Resource" id="Resource_h4e7f"]
 script = ExtResource("4_gnqjd")
 type = ExtResource("5_6yk0g")
 _slots = Array[ExtResource("2_65imq")]([SubResource("Resource_3m80w"), SubResource("Resource_38uc3"), SubResource("Resource_s2s46")])
+_item_totals = Dictionary[ExtResource("2_auliw"), int]({})
+_selected_totals = Dictionary[ExtResource("2_auliw"), int]({})
 metadata/_custom_type_script = "uid://dfoiqel6lgbf7"
 
 [node name="ItemContainerView" type="PanelContainer" node_paths=PackedStringArray("grid_container")]

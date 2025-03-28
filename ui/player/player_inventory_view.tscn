@@ -30,7 +30,6 @@ layout_mode = 2
 
 [node name="ItemContainerTabs" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-current_tab = 0
 
 [node name="MoneyLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

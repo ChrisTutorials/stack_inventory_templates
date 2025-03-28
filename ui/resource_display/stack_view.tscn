@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqex1ic151pcb"]
+[gd_scene load_steps=11 format=3 uid="uid://cqex1ic151pcb"]
 
 [ext_resource type="Texture2D" uid="uid://da3oqrbj2ylf" path="res://templates/stack_inventory/art/empty_icon.png" id="1_ho726"]
 [ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/stack_inventory/ui/view/stack_view.gd" id="1_irkis"]
-[ext_resource type="Script" uid="uid://ct6r5snpstssi" path="res://addons/stack_inventory/inventory/stack_view_settings.gd" id="3_s55mw"]
+[ext_resource type="Script" uid="uid://ct6r5snpstssi" path="res://addons/stack_inventory/ui/view/stack_view_settings.gd" id="3_s55mw"]
 [ext_resource type="Resource" uid="uid://baahc7vgae5bm" path="res://templates/stack_inventory/items/test_item_shoe.tres" id="4_3b825"]
-[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack.gd" id="5_msg1j"]
+[ext_resource type="Script" uid="uid://wh04qt1e4bwn" path="res://addons/stack_inventory/items/base_item.gd" id="4_msg1j"]
+[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack/item_stack.gd" id="5_msg1j"]
 [ext_resource type="Script" uid="uid://dvsesvhoxfsvh" path="res://addons/stack_inventory/stack_inventory_actions.gd" id="6_3b825"]
 
 [sub_resource type="Resource" id="Resource_emafw"]
@@ -18,6 +19,12 @@ script = ExtResource("5_msg1j")
 item = ExtResource("4_3b825")
 count = 5
 selected_amount = 0
+_item_totals = Dictionary[ExtResource("4_msg1j"), int]({
+ExtResource("4_3b825"): 5
+})
+_selected_totals = Dictionary[ExtResource("4_msg1j"), int]({
+ExtResource("4_3b825"): 0
+})
 metadata/_custom_type_script = "uid://dkf0fyysgh1tc"
 
 [sub_resource type="Resource" id="Resource_msg1j"]

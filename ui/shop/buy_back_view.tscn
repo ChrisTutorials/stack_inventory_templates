@@ -32,7 +32,6 @@ layout_mode = 2
 [node name="AdaptiveTabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
 tabs_visible = false
 script = ExtResource("3_hn64r")
 metadata/_custom_type_script = "uid://bqt1dgs223pit"
