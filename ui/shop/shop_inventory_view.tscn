@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://p5whx42fpqqy"]
+[gd_scene load_steps=5 format=3 uid="uid://p5whx42fpqqy"]
 
 [ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_bej2b"]
 [ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="2_bej2b"]
 [ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_display.gd" id="2_mxtj3"]
-[ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/stack_inventory/inventory/shop/purchase_inventory.tres" id="2_y0l3i"]
 [ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/stack_inventory/ui/adaptive_tab_container.gd" id="3_y0l3i"]
 
 [node name="ShopInventoryView" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
@@ -13,7 +12,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_bej2b")
 script = ExtResource("2_bej2b")
-inventory = ExtResource("2_y0l3i")
 container_tabs = NodePath("MarginContainer/VBoxContainer/AdaptiveTabContainer")
 container_view_template = "uid://cihvnkle5hx0m"
 
