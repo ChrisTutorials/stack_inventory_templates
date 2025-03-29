@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7cptwib50xyk"]
+[gd_scene load_steps=6 format=3 uid="uid://c7cptwib50xyk"]
 
 [ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_14vg6"]
 [ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_jkmc6"]
-[ext_resource type="Resource" uid="uid://3f6rt1jncq85" path="res://inventory/player_inventory.tres" id="2_u7mtk"]
 [ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/stack_inventory/ui/inventory/money_label.gd" id="5_tpnmj"]
 [ext_resource type="Script" uid="uid://dw4gh738rcbh4" path="res://addons/stack_inventory/ui/inventory_controller.gd" id="8_cvp67"]
 [ext_resource type="Resource" uid="uid://dyh51gy8sq4fq" path="res://templates/stack_inventory/settings/stack_inventory_actions.tres" id="9_3542n"]
@@ -15,7 +14,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_14vg6")
 script = ExtResource("1_jkmc6")
-inventory = ExtResource("2_u7mtk")
 money_label = NodePath("MarginContainer/VBoxContainer/MoneyLabel")
 container_tabs = NodePath("MarginContainer/VBoxContainer/ItemContainerTabs")
 container_view_template = "uid://cihvnkle5hx0m"
@@ -35,7 +33,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Money: 100"
 script = ExtResource("5_tpnmj")
-inventory = ExtResource("2_u7mtk")
 
 [node name="InventoryController" type="Node" parent="."]
 script = ExtResource("8_cvp67")

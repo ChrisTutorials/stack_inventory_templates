@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://je64jahhobyx"]
+[gd_scene load_steps=5 format=3 uid="uid://je64jahhobyx"]
 
 [ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_e77si"]
-[ext_resource type="Resource" uid="uid://dwmjfsgp0b8xw" path="res://templates/stack_inventory/inventory/shop/purchase_inventory.tres" id="2_7mrcg"]
 [ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="2_e77si"]
 [ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/stack_inventory/ui/adaptive_tab_container.gd" id="3_hn64r"]
 [ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_display.gd" id="5_b66xe"]
@@ -11,7 +10,6 @@ offset_right = 218.0
 offset_bottom = 236.0
 theme = ExtResource("1_e77si")
 script = ExtResource("2_e77si")
-inventory = ExtResource("2_7mrcg")
 container_tabs = NodePath("MarginContainer/VBoxContainer/AdaptiveTabContainer")
 container_view_template = "uid://cihvnkle5hx0m"
 metadata/_tab_index = 1

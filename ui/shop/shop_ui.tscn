@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdbbur6alyr0r"]
+[gd_scene load_steps=7 format=3 uid="uid://cdbbur6alyr0r"]
 
 [ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_crqfd"]
 [ext_resource type="Script" uid="uid://daomms2x82s43" path="res://addons/stack_inventory/shop/shop_view.gd" id="1_v03pr"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://vliyyydkrprt" path="res://addons/stack_inventory/shop/shop_name_label.gd" id="3_na10d"]
 [ext_resource type="PackedScene" uid="uid://stlhquw164jo" path="res://templates/stack_inventory/ui/shop/purchase_view.tscn" id="3_qr5qo"]
 [ext_resource type="PackedScene" uid="uid://je64jahhobyx" path="res://templates/stack_inventory/ui/shop/buy_back_view.tscn" id="4_4nsqi"]
-[ext_resource type="Resource" uid="uid://uweh0ijr7okt" path="res://templates/stack_inventory/inventory/shop/buyback_inventory.tres" id="5_1n54q"]
 
 [node name="ShopView" type="Panel" node_paths=PackedStringArray("close_button", "purchase_view", "buyback_view")]
 offset_right = 300.0
@@ -59,4 +58,3 @@ layout_mode = 2
 
 [node name="BuyBack" parent="MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("4_4nsqi")]
 layout_mode = 2
-inventory = ExtResource("5_1n54q")
