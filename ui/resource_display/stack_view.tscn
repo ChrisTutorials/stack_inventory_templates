@@ -1,32 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqex1ic151pcb"]
+[gd_scene format=3 uid="uid://cqex1ic151pcb"]
 
-[ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/stack_inventory/ui/view/stack_view.gd" id="1_irkis"]
-[ext_resource type="Script" uid="uid://ct6r5snpstssi" path="res://addons/stack_inventory/ui/view/stack_view_settings.gd" id="3_3b825"]
-[ext_resource type="Script" uid="uid://dkf0fyysgh1tc" path="res://addons/stack_inventory/inventory/item_stack/item_stack.gd" id="5_msg1j"]
-[ext_resource type="Script" uid="uid://dvsesvhoxfsvh" path="res://addons/stack_inventory/stack_inventory_actions.gd" id="6_3b825"]
-
-[sub_resource type="Resource" id="Resource_7gdxn"]
-script = ExtResource("3_3b825")
-empty_tooltip = "Empty"
-empty_label = ""
-show_single_item_count = false
-
-[sub_resource type="Resource" id="Resource_7yusy"]
-script = ExtResource("5_msg1j")
-count = 5
-selected_amount = 0
-metadata/_custom_type_script = "uid://dkf0fyysgh1tc"
-
-[sub_resource type="Resource" id="Resource_msg1j"]
-script = ExtResource("6_3b825")
-increase = &"increase"
-decrease = &"decrease"
-increase_more = &"increase_more"
-decrease_more = &"decrease_more"
-inventory = &"inventory"
-shift_modifier = true
-
-[node name="StackView" type="Button" node_paths=PackedStringArray("count_label")]
+[node name="StackView" type="Button"]
 custom_minimum_size = Vector2(60, 40)
 offset_left = 5.0
 offset_top = 5.0
@@ -36,11 +10,6 @@ size_flags_horizontal = 0
 tooltip_text = "Empty"
 focus_mode = 1
 expand_icon = true
-script = ExtResource("1_irkis")
-settings = SubResource("Resource_7gdxn")
-item_stack = SubResource("Resource_7yusy")
-actions = SubResource("Resource_msg1j")
-count_label = NodePath("CountLabel")
 
 [node name="CountLabel" type="Label" parent="."]
 layout_mode = 1
