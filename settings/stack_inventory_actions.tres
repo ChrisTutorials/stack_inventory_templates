@@ -1,13 +1,6 @@
-[gd_resource type="Resource" script_class="StackInventoryActions" load_steps=2 format=3 uid="uid://dyh51gy8sq4fq"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dyh51gy8sq4fq"]
 
-[ext_resource type="Script" uid="uid://dvsesvhoxfsvh" path="res://addons/stack_inventory/stack_inventory_actions.gd" id="1_txsun"]
+[ext_resource type="Script" uid="uid://dv712cxfaxveo" path="res://addons/stack_inventory/Godot/Settings/StackInventoryActions.cs" id="1_3n25a"]
 
 [resource]
-script = ExtResource("1_txsun")
-increase = &"increase"
-decrease = &"decrease"
-increase_more = &"increase_more"
-decrease_more = &"decrease_more"
-inventory = &"inventory"
-shift_modifier = true
-metadata/_custom_type_script = "uid://dvsesvhoxfsvh"
+script = ExtResource("1_3n25a")

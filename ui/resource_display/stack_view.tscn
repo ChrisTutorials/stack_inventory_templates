@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cqex1ic151pcb"]
+[gd_scene load_steps=2 format=3 uid="uid://cqex1ic151pcb"]
+
+[ext_resource type="Script" uid="uid://evkc85n61i4u" path="res://addons/stack_inventory/Godot/UI/View/StackView/StackView.cs" id="1_b6vae"]
 
 [node name="StackView" type="Button"]
 custom_minimum_size = Vector2(60, 40)
@@ -10,6 +12,7 @@ size_flags_horizontal = 0
 tooltip_text = "Empty"
 focus_mode = 1
 expand_icon = true
+script = ExtResource("1_b6vae")
 
 [node name="CountLabel" type="Label" parent="."]
 layout_mode = 1

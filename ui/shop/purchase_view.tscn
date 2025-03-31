@@ -1,19 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://stlhquw164jo"]
+[gd_scene load_steps=4 format=3 uid="uid://stlhquw164jo"]
 
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_q0i4h"]
-[ext_resource type="Script" uid="uid://bqt1dgs223pit" path="res://addons/stack_inventory/ui/adaptive_tab_container.gd" id="3_ir8np"]
-[ext_resource type="Resource" uid="uid://ce6ae6r5mud4e" path="res://templates/stack_inventory/settings/shop_context.tres" id="4_0kuge"]
-[ext_resource type="Script" uid="uid://btgilu06tytpw" path="res://addons/stack_inventory/ui/view/cost_display.gd" id="6_0cxy0"]
+[ext_resource type="Script" uid="uid://kilu0vj4c55g" path="res://addons/stack_inventory/Godot/UI/Inventory/InventoryView.cs" id="1_6kn48"]
+[ext_resource type="Script" uid="uid://bnqqe6axtupba" path="res://addons/stack_inventory/Godot/UI/AdaptiveTabContainer.cs" id="2_0v4l5"]
+[ext_resource type="Script" uid="uid://nd83elliffhq" path="res://addons/stack_inventory/Godot/UI/View/CostDisplay.cs" id="3_q0i4h"]
 
-[node name="Purchase" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
+[node name="Purchase" type="PanelContainer"]
 offset_right = 218.0
 offset_bottom = 236.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_q0i4h")
-container_tabs = NodePath("MarginContainer/VBoxContainer/AdaptiveTabContainer")
-container_view_template = "uid://cihvnkle5hx0m"
-metadata/_custom_type_script = "uid://bni6b13ea483x"
+script = ExtResource("1_6kn48")
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -33,11 +29,10 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 tabs_visible = false
-script = ExtResource("3_ir8np")
+script = ExtResource("2_0v4l5")
 
 [node name="CostDisplay" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "COST: 0"
-script = ExtResource("6_0cxy0")
-shop_context = ExtResource("4_0kuge")
+script = ExtResource("3_q0i4h")
