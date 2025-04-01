@@ -1,14 +1,6 @@
-[gd_resource type="Resource" script_class="BaseItem" load_steps=4 format=3 uid="uid://baahc7vgae5bm"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://baahc7vgae5bm"]
 
-[ext_resource type="Script" uid="uid://wh04qt1e4bwn" path="res://addons/stack_inventory/items/base_item.gd" id="1_fecp2"]
-[ext_resource type="Texture2D" uid="uid://da3oqrbj2ylf" path="res://templates/stack_inventory/art/empty_icon.png" id="1_qc0sb"]
-[ext_resource type="Script" uid="uid://1qpi64qijkbr" path="res://addons/stack_inventory/items/item_tag.gd" id="2_qc0sb"]
+[ext_resource type="Script" uid="uid://cdvnveqafivf1" path="res://addons/stack_inventory/Godot/Inventory/ItemResource.cs" id="1_qytc7"]
 
 [resource]
-script = ExtResource("1_fecp2")
-name = "Shoe"
-icon = ExtResource("1_qc0sb")
-value = 0.0
-tags = Array[ExtResource("2_qc0sb")]([])
-stack_maximum = 1
-metadata/_custom_type_script = "uid://wh04qt1e4bwn"
+script = ExtResource("1_qytc7")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://dyh51gy8sq4fq"]
 
-[ext_resource type="Script" uid="uid://dv712cxfaxveo" path="res://addons/stack_inventory/Godot/Settings/StackInventoryActions.cs" id="1_3n25a"]
+[ext_resource type="Script" uid="uid://dv712cxfaxveo" path="res://addons/stack_inventory/Godot/Settings/InventoryActions.cs" id="1_3n25a"]
 
 [resource]
 script = ExtResource("1_3n25a")
