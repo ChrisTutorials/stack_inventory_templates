@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqex1ic151pcb"]
+[gd_scene load_steps=6 format=3 uid="uid://cqex1ic151pcb"]
 
-[ext_resource type="Script" uid="uid://evkc85n61i4u" path="res://addons/stack_inventory/Godot/UI/View/StackView/StackView.cs" id="1_b6vae"]
+[ext_resource type="Script" uid="uid://n86nfvl4agbl" path="res://addons/stack_inventory/ui/view/stack_view/stack_view.gd" id="1_arxl3"]
+[ext_resource type="Script" uid="uid://ct6r5snpstssi" path="res://addons/stack_inventory/ui/view/stack_view/stack_view_settings.gd" id="2_0tp06"]
+[ext_resource type="Script" uid="uid://dvsesvhoxfsvh" path="res://addons/stack_inventory/stack_inventory_actions.gd" id="3_ho726"]
 
-[node name="StackView" type="Button"]
+[sub_resource type="Resource" id="Resource_3b825"]
+script = ExtResource("2_0tp06")
+empty_tooltip = "Empty"
+empty_label = ""
+show_single_item_count = false
+
+[sub_resource type="Resource" id="Resource_msg1j"]
+script = ExtResource("3_ho726")
+increase = &"increase"
+decrease = &"decrease"
+increase_more = &"increase_more"
+decrease_more = &"decrease_more"
+inventory = &"inventory"
+shift_modifier = true
+
+[node name="StackView" type="Button" node_paths=PackedStringArray("count_label")]
 custom_minimum_size = Vector2(60, 40)
 offset_left = 5.0
 offset_top = 5.0
@@ -12,7 +29,10 @@ size_flags_horizontal = 0
 tooltip_text = "Empty"
 focus_mode = 1
 expand_icon = true
-script = ExtResource("1_b6vae")
+script = ExtResource("1_arxl3")
+settings = SubResource("Resource_3b825")
+actions = SubResource("Resource_msg1j")
+count_label = NodePath("CountLabel")
 
 [node name="CountLabel" type="Label" parent="."]
 layout_mode = 1

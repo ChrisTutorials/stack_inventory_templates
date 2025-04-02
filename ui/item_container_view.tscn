@@ -1,13 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://cihvnkle5hx0m"]
 
-[ext_resource type="Script" uid="uid://dkyxj3o4pfm3" path="res://addons/stack_inventory/Godot/UI/View/ItemContainerView/ItemContainerView.cs" id="1_aundu"]
+[ext_resource type="Script" uid="uid://dnk53rq44rqtl" path="res://addons/stack_inventory/ui/view/item_container_view/item_container_view.gd" id="1_aundu"]
 
-[node name="ItemContainerView" type="PanelContainer"]
+[node name="ItemContainerView" type="PanelContainer" node_paths=PackedStringArray("grid_container")]
 custom_minimum_size = Vector2(20, 20)
 scale = Vector2(1.00259, 1)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_aundu")
+stack_view_template = "uid://cqex1ic151pcb"
+grid_container = NodePath("MarginContainer/GridContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
