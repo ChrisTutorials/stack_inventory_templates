@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdbbur6alyr0r"]
+[gd_scene load_steps=6 format=3 uid="uid://cdbbur6alyr0r"]
 
 [ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_crqfd"]
 [ext_resource type="Script" uid="uid://daomms2x82s43" path="res://addons/stack_inventory/shop/shop_view.gd" id="2_yh5ey"]
+[ext_resource type="Resource" uid="uid://ce6ae6r5mud4e" path="res://templates/stack_inventory/settings/shop_context.tres" id="3_1n54q"]
 [ext_resource type="PackedScene" uid="uid://stlhquw164jo" path="res://templates/stack_inventory/ui/shop/purchase_view.tscn" id="3_qr5qo"]
 [ext_resource type="PackedScene" uid="uid://je64jahhobyx" path="res://templates/stack_inventory/ui/shop/buy_back_view.tscn" id="4_4nsqi"]
 
@@ -10,6 +11,7 @@ offset_right = 300.0
 offset_bottom = 500.0
 theme = ExtResource("1_crqfd")
 script = ExtResource("2_yh5ey")
+shop_context = ExtResource("3_1n54q")
 close_button = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CloseButton")
 purchase_view = NodePath("MarginContainer/VBoxContainer/TabContainer/Purchase")
 buyback_view = NodePath("MarginContainer/VBoxContainer/TabContainer/BuyBack")
