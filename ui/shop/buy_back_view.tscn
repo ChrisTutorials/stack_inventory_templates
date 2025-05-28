@@ -1,15 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://je64jahhobyx"]
 
 [ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_e77si"]
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="2_kdcl4"]
+[ext_resource type="Script" uid="uid://d4ecki5ar4iag" path="res://addons/stack_inventory_godot/UI/Inventory/InventoryView.cs" id="2_kdcl4"]
 
-[node name="BuyBackInventoryView" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
+[node name="BuyBackInventoryView" type="PanelContainer"]
 offset_right = 218.0
 offset_bottom = 236.0
 theme = ExtResource("1_e77si")
 script = ExtResource("2_kdcl4")
-container_tabs = NodePath("MarginContainer/VBoxContainer/AdaptiveTabContainer")
-container_view_template = "uid://cihvnkle5hx0m"
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

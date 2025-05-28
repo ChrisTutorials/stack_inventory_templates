@@ -1,15 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://stlhquw164jo"]
 
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="1_6kn48"]
+[ext_resource type="Script" uid="uid://d4ecki5ar4iag" path="res://addons/stack_inventory_godot/UI/Inventory/InventoryView.cs" id="1_6kn48"]
 
-[node name="Purchase" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
+[node name="Purchase" type="PanelContainer"]
 offset_right = 218.0
 offset_bottom = 236.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_6kn48")
-container_tabs = NodePath("MarginContainer/VBoxContainer/AdaptiveTabContainer")
-container_view_template = "uid://cihvnkle5hx0m"
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

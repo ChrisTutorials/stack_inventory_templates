@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="ShopContext" load_steps=2 format=3 uid="uid://ce6ae6r5mud4e"]
 
-[ext_resource type="Script" uid="uid://c3f8shqt78ubq" path="res://addons/stack_inventory/shop/shop_context.gd" id="1_ulbrm"]
+[ext_resource type="Script" uid="uid://d1kiaang11ygr" path="res://addons/stack_inventory_godot/Trading/ShopContext.cs" id="1_ulbrm"]
 
 [resource]
 script = ExtResource("1_ulbrm")
-metadata/_custom_type_script = "uid://c3f8shqt78ubq"

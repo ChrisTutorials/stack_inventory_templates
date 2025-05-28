@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7cptwib50xyk"]
+[gd_scene load_steps=5 format=3 uid="uid://c7cptwib50xyk"]
 
 [ext_resource type="Theme" uid="uid://c2vfxf3i18wxo" path="res://templates/stack_inventory/settings/stack_inventory_theme.tres" id="1_14vg6"]
-[ext_resource type="Script" uid="uid://bni6b13ea483x" path="res://addons/stack_inventory/ui/inventory/inventory_view.gd" id="2_y40s1"]
-[ext_resource type="Script" uid="uid://ddkso3iebwol8" path="res://addons/stack_inventory/ui/inventory/money_label.gd" id="3_fp26h"]
+[ext_resource type="Script" uid="uid://d4ecki5ar4iag" path="res://addons/stack_inventory_godot/UI/Inventory/InventoryView.cs" id="2_y40s1"]
+[ext_resource type="Resource" uid="uid://3f6rt1jncq85" path="res://inventory/player_inventory.tres" id="3_bnfx0"]
+[ext_resource type="Script" uid="uid://docotu1ppwhf" path="res://addons/stack_inventory_godot/UI/Inventory/MoneyLabel.cs" id="3_fp26h"]
 
-[node name="PlayerInventoryView" type="PanelContainer" node_paths=PackedStringArray("container_tabs")]
+[node name="PlayerInventoryView" type="PanelContainer" node_paths=PackedStringArray("MoneyLabel", "ContainerTabs")]
 custom_minimum_size = Vector2(100, 100)
 offset_right = 198.0
 offset_bottom = 240.0
@@ -12,8 +13,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_14vg6")
 script = ExtResource("2_y40s1")
-container_tabs = NodePath("MarginContainer/VBoxContainer/ItemContainerTabs")
-container_view_template = "uid://cihvnkle5hx0m"
+InitialInventory = ExtResource("3_bnfx0")
+MoneyLabel = NodePath("MarginContainer/VBoxContainer/MoneyLabel")
+ContainerTabs = NodePath("MarginContainer/VBoxContainer/ItemContainerTabs")
+ContainerViewTemplate = "uid://cihvnkle5hx0m"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -28,5 +31,3 @@ layout_mode = 2
 layout_mode = 2
 text = "Money: 100"
 script = ExtResource("3_fp26h")
-
-[node name="InventoryController" type="Node" parent="."]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsx6h0s8hhlwf"]
+[gd_scene load_steps=2 format=3 uid="uid://bsx6h0s8hhlwf"]
 
-[ext_resource type="Script" uid="uid://cjs2wi0plqxhu" path="res://addons/flex_inventory/ui/view/total_item_count_view.gd" id="1_tedsn"]
-[ext_resource type="PackedScene" uid="uid://cqex1ic151pcb" path="res://templates/flex_inventory/ui/resource_display/stack_view.tscn" id="2_0i748"]
+[ext_resource type="Script" uid="uid://c4deaqlllal1i" path="res://addons/stack_inventory_godot/UI/Inventory/ItemCountsView.cs" id="1_jewor"]
 
-[node name="ResourceDisplay" type="MarginContainer" node_paths=PackedStringArray("grid_container")]
+[node name="TotalItemCountView" type="MarginContainer"]
 offset_right = 362.0
 offset_bottom = 76.0
 mouse_filter = 0
@@ -11,9 +10,7 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
-script = ExtResource("1_tedsn")
-item_display_template = ExtResource("2_0i748")
-grid_container = NodePath("NinePatchRect/MarginContainer/GridContainer")
+script = ExtResource("1_jewor")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.854902)

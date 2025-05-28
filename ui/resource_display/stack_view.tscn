@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqex1ic151pcb"]
 
-[ext_resource type="Script" uid="uid://bn74cakb0fime" path="res://addons/stack_inventory_godot/UI/stack/StackView.cs" id="1_b6vae"]
+[ext_resource type="Script" uid="uid://bn74cakb0fime" path="res://addons/stack_inventory_godot/UI/Stack/StackView.cs" id="1_b6vae"]
 
-[node name="StackView" type="Button"]
+[node name="StackView" type="Button" node_paths=PackedStringArray("CountLabel")]
 custom_minimum_size = Vector2(60, 40)
 offset_left = 5.0
 offset_top = 5.0
@@ -13,6 +13,7 @@ tooltip_text = "Empty"
 focus_mode = 1
 expand_icon = true
 script = ExtResource("1_b6vae")
+CountLabel = NodePath("CountLabel")
 
 [node name="CountLabel" type="Label" parent="."]
 layout_mode = 1
